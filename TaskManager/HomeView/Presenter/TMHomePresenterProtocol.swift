@@ -18,6 +18,6 @@ protocol TMHomePresenterProtocol {
     func getData() -> ()
     func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath)
     func didSelectRowAt(indexPath: IndexPath)
-    func setupTaskDetailViewController(view: TMTaskDetailViewControllerProtocol)
-    func setupSettingsDetailViewController(view: TMSettingsViewControllerProtocol)
+    func setupTaskDetailViewController(detailView: TMTaskDetailViewControllerProtocol)
+    func setupSettingsDetailViewController(settingsView: TMSettingsViewControllerProtocol)
 }

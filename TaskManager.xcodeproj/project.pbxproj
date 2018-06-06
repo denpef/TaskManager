@@ -33,6 +33,7 @@
 		DB69413D20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69413C20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift */; };
 		DB69414020C83434003B7FAA /* TMHomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69413F20C83434003B7FAA /* TMHomeWireframe.swift */; };
 		DB69414220C83440003B7FAA /* TMHomeWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69414120C83440003B7FAA /* TMHomeWireframeProtocol.swift */; };
+		DB69414420C8400D003B7FAA /* TMSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69414320C8400D003B7FAA /* TMSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		DB69413C20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskDetailPresenterProtocol.swift; sourceTree = "<group>"; };
 		DB69413F20C83434003B7FAA /* TMHomeWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHomeWireframe.swift; sourceTree = "<group>"; };
 		DB69414120C83440003B7FAA /* TMHomeWireframeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHomeWireframeProtocol.swift; sourceTree = "<group>"; };
+		DB69414320C8400D003B7FAA /* TMSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				DB69413820C832A4003B7FAA /* TMSettingsViewControllerProtocol.swift */,
+				DB69414320C8400D003B7FAA /* TMSegue.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				DB69411F20C7E2DF003B7FAA /* TMHomeViewControllerProtocol.swift in Sources */,
 				DB69413B20C83364003B7FAA /* TMTaskDetailPresenter.swift in Sources */,
 				DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */,
+				DB69414420C8400D003B7FAA /* TMSegue.swift in Sources */,
 				DB69412A20C7E3AB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

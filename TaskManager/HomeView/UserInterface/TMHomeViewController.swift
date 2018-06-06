@@ -23,11 +23,11 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     @IBOutlet weak var addNewTaskButton: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
-    static func storyboardInstance() -> TMHomeViewController? {
-        let identifire = String(describing: self)
-        let storyboard = UIStoryboard(name: identifire, bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: identifire) as? TMHomeViewController
-    }
+//    static func storyboardInstance() -> TMHomeViewController? {
+//        let identifire = String(describing: self)
+//        let storyboard = UIStoryboard(name: identifire, bundle: nil)
+//        return storyboard.instantiateViewController(withIdentifier: identifire) as? TMHomeViewController
+//    }
     
     // MARK: Override methods
     
@@ -46,12 +46,22 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
         tableView.reloadData()
     }
     
+    func presentTaskDetailView() {
+        performSegue(withIdentifier: TMSegue.taskDetailSegue, sender: self)
+    }
+    
+    func presentSettingsView() {
+        performSegue(withIdentifier: TMSegue.settingSegue, sender: self)
+    }
+    
+    // MARK: Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "TaskDetailSegue":
-            presenter?.setupTaskDetailViewController(view: sender as! TMTaskDetailViewControllerProtocol)
-        case "SettingSegue":
-            presenter?.setupSettingsDetailViewController(view: sender as! TMSettingsViewControllerProtocol)
+        case TMSegue.taskDetailSegue:
+            presenter?.setupTaskDetailViewController(detailView: sender as! TMTaskDetailViewControllerProtocol)
+        case TMSegue.settingSegue:
+            presenter?.setupSettingsDetailViewController(settingsView: sender as! TMSettingsViewControllerProtocol)
         default:
             return
         }

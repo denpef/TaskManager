@@ -9,5 +9,6 @@
 import Foundation
 
 protocol TMTaskDetailPresenterProtocol {
-    
+    var wireframe: TMTaskDetailViewControllerProtocol { get set }
+    var view: TMTaskDetailViewControllerProtocol { get set }
 }

@@ -10,4 +10,12 @@ import Foundation
 
 class TMHomeWireframe: TMHomeWireframeProtocol {
     
+    func presentDetailView(with task: Task?, view: TMTaskDetailViewControllerProtocol) {
+        
+    }
+    
+    func presentSettingsView(view: TMSettingsViewControllerProtocol) {
+        
+    }
+    
 }

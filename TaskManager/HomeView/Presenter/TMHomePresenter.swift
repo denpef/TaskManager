@@ -80,15 +80,20 @@ extension TMHomePresenter: TMHomePresenterProtocol {
     
     func didSelectRowAt(indexPath: IndexPath) {
         currentTask = task(atIndex: indexPath)
-        
+        view?.presentTaskDetailView()
     }
     
-    func setupTaskDetailViewController(view: TMTaskDetailViewControllerProtocol) {
-        
+    func didAddNewTask(indexPath: IndexPath) {
+        view?.presentTaskDetailView()
     }
     
-    func setupSettingsDetailViewController(view: TMSettingsViewControllerProtocol) {
-        
+    func setupTaskDetailViewController(detailView: TMTaskDetailViewControllerProtocol) {
+        wireframe?.presentDetailView(with: currentTask, view: detailView)
+        currentTask = nil
+    }
+    
+    func setupSettingsDetailViewController(settingsView: TMSettingsViewControllerProtocol) {
+        wireframe?.presentSettingsView(view: settingsView)
     }
     
 }

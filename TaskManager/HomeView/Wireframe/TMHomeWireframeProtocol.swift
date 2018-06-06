@@ -9,5 +9,6 @@
 import Foundation
 
 protocol TMHomeWireframeProtocol {
-
+    func presentDetailView(with task: Task?, view: TMTaskDetailViewControllerProtocol)
+    func presentSettingsView(view: TMSettingsViewControllerProtocol)
 }

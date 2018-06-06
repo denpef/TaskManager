@@ -7,5 +7,5 @@
 //
 
 protocol TMTaskDetailViewControllerProtocol {
-    
+    var presenter: TMTaskDetailPresenterProtocol { get set }
 }

@@ -8,4 +8,6 @@
 
 protocol TMHomeViewControllerProtocol {
     func reloadData()
+    func presentTaskDetailView()
+    func presentSettingsView()
 }
