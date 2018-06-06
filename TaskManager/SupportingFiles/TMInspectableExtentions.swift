@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension UIView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+}
+
 extension UIButton {
     @IBInspectable var borderWidth : CGFloat {
         set {
@@ -24,15 +36,6 @@ extension UIButton {
         }
         get {
             return UIColor(cgColor: layer.borderColor!)
-        }
-    }
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
         }
     }
 }
