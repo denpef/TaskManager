@@ -14,8 +14,11 @@ protocol TMTaskDetailPresenterProtocol {
     //var task: Task? { get set }
     
     func setupView()
-    func didDeleted()
     func categoryChange()
     
     func didChangeTitle(text: String)
+    
+    func didDeletedTask(completionHandler: () -> ())
+    func doneButtonTapped()
+    
 }

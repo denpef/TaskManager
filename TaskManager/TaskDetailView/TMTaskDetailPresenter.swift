@@ -25,14 +25,37 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     var view: TMTaskDetailViewControllerProtocol?
     var task: Task?
 
-    func didDeleted() {
+    var title: String?
+    var completionDate: NSDate?
+    var colorCategory: ColorCategory?
+    
+    func doneButtonTapped() {
         
+        if let newTitle = title {
+            if newTitle != "" {
+                createNewTaskIfNeeded()
+                task?.title = title
+            }
+        }
+        
+        task?.completionDate = completionDate
+        task?.colorCategory = colorCategory
+        
+        TMPersistentService.saveContext()
     }
+    
     func categoryChange() {
         
     }
     
     func setupView() {
+        
+        // Cash task data
+        title = task?.title
+        completionDate = task?.completionDate
+        colorCategory = task?.colorCategory
+        
+        //
         view?.setTitle(text: task?.title ?? "")
         view?.setCategoryTitle(text: task?.colorCategory?.title ?? "")
         view?.setCategoryColor(hex: task?.colorCategory?.colorAsHex ?? "")
@@ -44,13 +67,8 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     }
     
     func didChangeTitle(text: String) {
-        
         if text == "" { return }
-        createNewTaskIfNeeded()
-        task?.title = text
-        
-        TMPersistentService.saveContext()
-
+        title = text
     }
     
     private func createNewTaskIfNeeded() {
@@ -58,4 +76,11 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         task = Task(context: TMPersistentService.context)
     }
     
+    func didDeletedTask(completionHandler: () -> ()) {
+        if let task = task {
+            TMPersistentService.context.delete(task)
+            TMPersistentService.saveContext()
+        }
+        completionHandler()
+    }
 }

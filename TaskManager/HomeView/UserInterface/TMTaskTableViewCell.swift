@@ -14,7 +14,7 @@ class TMTaskTableViewCell: UITableViewCell  {
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var completionDateLabel: UILabel!
     @IBOutlet weak var colorCategoryImage: UIImageView!
-    
+    @IBOutlet weak var completedFlagView: UIView!
 }
 extension TMTaskTableViewCell: TMTaskTableViewCellProtocol {
 

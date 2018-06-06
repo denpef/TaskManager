@@ -20,8 +20,29 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
     @IBOutlet var doneBarBurronItem: UIBarButtonItem!
     
     @IBAction func doneBarButtonTouchUpInside(_ sender: Any) {
+        self.view.endEditing(true)
+        presenter?.doneButtonTapped()
         navigationController?.popViewController(animated: true)
-        //dismiss(animated: true)
+    }
+    
+    @IBAction func deleteBarButtonItemTap(_ sender: Any) {
+        
+        // Alert controller
+        let alertController = UIAlertController(title: titleTextField.text, message: "will be irretrievably deleted", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+        }
+        alertController.addAction(cancelAction)
+        
+        let destroyAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.presenter?.didDeletedTask {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        alertController.addAction(destroyAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     func setTitle(text: String) {
@@ -42,14 +63,16 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup Text fields
+        titleTextField.autocapitalizationType = .sentences
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.setupView()
     }
-    
-    
 
 }
 
@@ -60,7 +83,7 @@ extension TMTaskDetailViewController: UITextFieldDelegate {
         return false
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
 //        if let dateInputView = textField.inputView as? DatePickerViewController {
 //            if dateInputView.modeOfPicker == .date {
 //                if point!.dateIsEmpty() {
@@ -74,9 +97,10 @@ extension TMTaskDetailViewController: UITextFieldDelegate {
 //                dateInputView.picker.setDate(point!.reminderDate! as Date, animated: false)
 //            }
 //        }
-    }
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+
         if titleTextField == textField {
             presenter?.didChangeTitle(text: textField.text!)
         }

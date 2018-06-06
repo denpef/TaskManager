@@ -19,6 +19,8 @@ protocol TMHomePresenterProtocol {
     func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath)
     func didAddNewTask()
     func didSelectRowAt(indexPath: IndexPath)
+    func didSDeleteRowAt(indexPath: IndexPath)
     func setupTaskDetailViewController(detailView: TMTaskDetailViewControllerProtocol)
     func setupSettingsDetailViewController(settingsView: TMSettingsViewControllerProtocol)
+    func invertedCompleteFlag(at indexPath: IndexPath)
 }

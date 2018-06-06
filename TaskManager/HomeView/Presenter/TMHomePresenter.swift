@@ -100,6 +100,22 @@ extension TMHomePresenter: TMHomePresenterProtocol {
         wireframe?.presentSettingsView(view: settingsView)
     }
     
+    func didSDeleteRowAt(indexPath: IndexPath) {
+        if let task = task(atIndex: indexPath) {
+            TMPersistentService.context.delete(task)
+            TMPersistentService.saveContext()
+        }
+        getData()
+    }
+    
+    func invertedCompleteFlag(at indexPath: IndexPath) {
+        if let task = task(atIndex: indexPath) {
+            task.isCompleted = !task.isCompleted
+            TMPersistentService.saveContext()
+        }
+        getData()
+    }
+    
 }
 
 
