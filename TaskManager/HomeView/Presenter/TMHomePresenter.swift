@@ -15,6 +15,16 @@ class TMHomePresenter {
     var tasksCount: Int {
         return tasks.count
     }
+    lazy var formatter: DateFormatter = {
+        
+        let formatter = DateFormatter()
+        
+        formatter.calendar = Calendar.current
+        formatter.locale = Calendar.current.locale
+        formatter.dateFormat = "MMM, dd"
+        
+        return formatter
+    }()
     
 }
 
@@ -26,6 +36,31 @@ extension TMHomePresenter: TMHomePresenterProtocol {
         } else {
             return nil
         }
+    }
+    
+    func tasksColorAsHex(atIndex indexPath: IndexPath) -> String? {
+        if let task = task(atIndex: indexPath) {
+            if let colorAsHex = task.colorCategory?.colorAsHex {
+                return colorAsHex == "" ? nil : colorAsHex
+            }
+        }
+        return nil
+    }
+    
+    func tasksName(atIndex indexPath: IndexPath)  -> String {
+        if let task = task(atIndex: indexPath) {
+            return task.title ?? ""
+        }
+        return ""
+    }
+    
+    func tasksDate(atIndex indexPath: IndexPath)  -> String {
+        if let task = task(atIndex: indexPath) {
+            if let date = task.completionDate {
+                return formatter.string(from: date as Date)
+            }
+        }
+        return "No date"
     }
     
     func getData() {

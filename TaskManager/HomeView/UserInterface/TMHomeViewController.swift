@@ -35,6 +35,7 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     func reloadData() {
         tableView.reloadData()
     }
+    
 }
 
 extension TMHomeViewController: UITableViewDelegate {
@@ -49,10 +50,15 @@ extension TMHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TMTaskTableViewCell
-        let task = presenter?.task(atIndex: indexPath)
         
-        cell.colorCategoryImage.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
-        cell.taskNameLabel.text = task?.name ?? ""
+        if let colorAsHex = presenter?.tasksColorAsHex(atIndex: indexPath) {
+            cell.colorCategoryImage.backgroundColor = UIColor(hex: colorAsHex)
+        } else {
+            cell.colorCategoryImage.backgroundColor = UIColor.clear
+        }
+        
+        cell.taskNameLabel.text = presenter?.tasksName(atIndex: indexPath)
+        cell.completionDateLabel.text = presenter?.tasksDate(atIndex: indexPath)
         
         return cell
     }

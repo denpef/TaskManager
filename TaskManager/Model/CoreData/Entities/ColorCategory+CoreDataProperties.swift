@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 
@@ -17,11 +18,23 @@ extension ColorCategory {
         return NSFetchRequest<ColorCategory>(entityName: "ColorCategory")
     }
 
-    @NSManaged public var color: String?
+    @NSManaged public var colorAsHex: String?
     @NSManaged public var id: String?
-    @NSManaged public var name: String?
+    @NSManaged public var title: String?
     @NSManaged public var tasks: NSSet?
 
+}
+
+// MARK: UIColor extension
+extension ColorCategory {
+    
+    public var color: UIColor? {
+        get {
+            guard let hex = colorAsHex else { return nil }
+            return UIColor(hex: hex)
+        }
+    }
+    
 }
 
 // MARK: Generated accessors for tasks

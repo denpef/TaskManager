@@ -13,5 +13,8 @@ protocol TMHomePresenterProtocol {
     var tasksCount: Int { get }
     
     func task(atIndex indexPath: IndexPath) -> Task?
-    func getData()
+    func getData() -> ()
+    func tasksColorAsHex(atIndex: IndexPath) -> String?
+    func tasksName(atIndex: IndexPath) -> String
+    func tasksDate(atIndex: IndexPath) -> String
 }

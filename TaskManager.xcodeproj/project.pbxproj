@@ -14,7 +14,7 @@
 		DB6940A420C7D54F003B7FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6940A220C7D54F003B7FAA /* LaunchScreen.storyboard */; };
 		DB6940AF20C7D54F003B7FAA /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940AE20C7D54F003B7FAA /* TaskManagerTests.swift */; };
 		DB6940BA20C7D54F003B7FAA /* TaskManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940B920C7D54F003B7FAA /* TaskManagerUITests.swift */; };
-		DB69411420C7DE59003B7FAA /* TMUIButtonExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69411320C7DE59003B7FAA /* TMUIButtonExtention.swift */; };
+		DB69411420C7DE59003B7FAA /* TMInspectableExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69411320C7DE59003B7FAA /* TMInspectableExtentions.swift */; };
 		DB69411720C7DEBA003B7FAA /* TMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69411620C7DEBA003B7FAA /* TMHomeViewController.swift */; };
 		DB69411A20C7DF56003B7FAA /* TMHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69411920C7DF56003B7FAA /* TMHomePresenter.swift */; };
 		DB69411D20C7DFA0003B7FAA /* TMHomePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69411C20C7DFA0003B7FAA /* TMHomePresenterProtocol.swift */; };
@@ -25,6 +25,7 @@
 		DB69412B20C7E3AB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69412720C7E3AB003B7FAA /* ColorCategory+CoreDataProperties.swift */; };
 		DB69412D20C7E458003B7FAA /* TMPersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69412C20C7E458003B7FAA /* TMPersistentService.swift */; };
 		DB69412F20C7E71B003B7FAA /* TMTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69412E20C7E71B003B7FAA /* TMTaskTableViewCell.swift */; };
+		DB69413120C80D8F003B7FAA /* TMUIColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69413020C80D8F003B7FAA /* TMUIColorExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 		DB6940B520C7D54F003B7FAA /* TaskManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6940B920C7D54F003B7FAA /* TaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITests.swift; sourceTree = "<group>"; };
 		DB6940BB20C7D54F003B7FAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB69411320C7DE59003B7FAA /* TMUIButtonExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUIButtonExtention.swift; sourceTree = "<group>"; };
+		DB69411320C7DE59003B7FAA /* TMInspectableExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInspectableExtentions.swift; sourceTree = "<group>"; };
 		DB69411620C7DEBA003B7FAA /* TMHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHomeViewController.swift; sourceTree = "<group>"; };
 		DB69411920C7DF56003B7FAA /* TMHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHomePresenter.swift; sourceTree = "<group>"; };
 		DB69411C20C7DFA0003B7FAA /* TMHomePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHomePresenterProtocol.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		DB69412720C7E3AB003B7FAA /* ColorCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB69412C20C7E458003B7FAA /* TMPersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPersistentService.swift; sourceTree = "<group>"; };
 		DB69412E20C7E71B003B7FAA /* TMTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskTableViewCell.swift; sourceTree = "<group>"; };
+		DB69413020C80D8F003B7FAA /* TMUIColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUIColorExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,8 @@
 		DB69411220C7DE3F003B7FAA /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				DB69411320C7DE59003B7FAA /* TMUIButtonExtention.swift */,
+				DB69411320C7DE59003B7FAA /* TMInspectableExtentions.swift */,
+				DB69413020C80D8F003B7FAA /* TMUIColorExtention.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -346,10 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB69411D20C7DFA0003B7FAA /* TMHomePresenterProtocol.swift in Sources */,
-				DB69411420C7DE59003B7FAA /* TMUIButtonExtention.swift in Sources */,
+				DB69411420C7DE59003B7FAA /* TMInspectableExtentions.swift in Sources */,
 				DB69412820C7E3AB003B7FAA /* Task+CoreDataClass.swift in Sources */,
 				DB69412F20C7E71B003B7FAA /* TMTaskTableViewCell.swift in Sources */,
 				DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */,
+				DB69413120C80D8F003B7FAA /* TMUIColorExtention.swift in Sources */,
 				DB69412920C7E3AB003B7FAA /* Task+CoreDataProperties.swift in Sources */,
 				DB69412B20C7E3AB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */,
 				DB69411A20C7DF56003B7FAA /* TMHomePresenter.swift in Sources */,

@@ -20,7 +20,7 @@ extension Task {
     @NSManaged public var completionDate: NSDate?
     @NSManaged public var id: String?
     @NSManaged public var isCompleted: Bool
-    @NSManaged public var name: String?
+    @NSManaged public var title: String?
     @NSManaged public var colorCategory: ColorCategory?
 
 }
