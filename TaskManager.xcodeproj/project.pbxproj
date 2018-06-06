@@ -8,13 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69409620C7D54D003B7FAA /* AppDelegate.swift */; };
-		DB69409920C7D54D003B7FAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69409820C7D54D003B7FAA /* ViewController.swift */; };
 		DB69409C20C7D54D003B7FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB69409A20C7D54D003B7FAA /* Main.storyboard */; };
 		DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB69409D20C7D54D003B7FAA /* TaskManager.xcdatamodeld */; };
 		DB6940A120C7D54F003B7FAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6940A020C7D54F003B7FAA /* Assets.xcassets */; };
 		DB6940A420C7D54F003B7FAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6940A220C7D54F003B7FAA /* LaunchScreen.storyboard */; };
 		DB6940AF20C7D54F003B7FAA /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940AE20C7D54F003B7FAA /* TaskManagerTests.swift */; };
 		DB6940BA20C7D54F003B7FAA /* TaskManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940B920C7D54F003B7FAA /* TaskManagerUITests.swift */; };
+		DB6940C920C7D9D6003B7FAA /* TMUIButtonExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940C820C7D9D6003B7FAA /* TMUIButtonExtention.swift */; };
+		DB6940DA20C7D9E1003B7FAA /* TMHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940CC20C7D9E1003B7FAA /* TMHomePresenter.swift */; };
+		DB6940DB20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940CD20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift */; };
+		DB6940DC20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940CF20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift */; };
+		DB6940DD20C7D9E1003B7FAA /* TMHomeInteractorOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D020C7D9E1003B7FAA /* TMHomeInteractorOutputProtocol.swift */; };
+		DB6940DE20C7D9E1003B7FAA /* TMHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D120C7D9E1003B7FAA /* TMHomeInteractor.swift */; };
+		DB6940DF20C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D320C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift */; };
+		DB6940E020C7D9E1003B7FAA /* TMTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D420C7D9E1003B7FAA /* TMTaskTableViewCell.swift */; };
+		DB6940E120C7D9E1003B7FAA /* TMHomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6940D520C7D9E1003B7FAA /* TMHomeViewController.storyboard */; };
+		DB6940E220C7D9E1003B7FAA /* TMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D620C7D9E1003B7FAA /* TMHomeViewController.swift */; };
+		DB6940E320C7D9E1003B7FAA /* TMHomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D820C7D9E1003B7FAA /* TMHomeWireframe.swift */; };
+		DB6940E420C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D920C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift */; };
+		DB6940ED20C7D9EB003B7FAA /* TMPersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940E720C7D9EB003B7FAA /* TMPersistentService.swift */; };
+		DB6940EE20C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */; };
+		DB6940EF20C7D9EB003B7FAA /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */; };
+		DB6940F020C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */; };
+		DB6940F120C7D9EB003B7FAA /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +53,6 @@
 /* Begin PBXFileReference section */
 		DB69409320C7D54D003B7FAA /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB69409620C7D54D003B7FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB69409820C7D54D003B7FAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB69409B20C7D54D003B7FAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB69409E20C7D54D003B7FAA /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
 		DB6940A020C7D54F003B7FAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +64,24 @@
 		DB6940B520C7D54F003B7FAA /* TaskManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6940B920C7D54F003B7FAA /* TaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITests.swift; sourceTree = "<group>"; };
 		DB6940BB20C7D54F003B7FAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB6940C820C7D9D6003B7FAA /* TMUIButtonExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUIButtonExtention.swift; sourceTree = "<group>"; };
+		DB6940CC20C7D9E1003B7FAA /* TMHomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomePresenter.swift; sourceTree = "<group>"; };
+		DB6940CD20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomePresenterProtocol.swift; sourceTree = "<group>"; };
+		DB6940CF20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeInteractorProtocol.swift; sourceTree = "<group>"; };
+		DB6940D020C7D9E1003B7FAA /* TMHomeInteractorOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeInteractorOutputProtocol.swift; sourceTree = "<group>"; };
+		DB6940D120C7D9E1003B7FAA /* TMHomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeInteractor.swift; sourceTree = "<group>"; };
+		DB6940D320C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeViewControllerProtocol.swift; sourceTree = "<group>"; };
+		DB6940D420C7D9E1003B7FAA /* TMTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTaskTableViewCell.swift; sourceTree = "<group>"; };
+		DB6940D520C7D9E1003B7FAA /* TMHomeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TMHomeViewController.storyboard; sourceTree = "<group>"; };
+		DB6940D620C7D9E1003B7FAA /* TMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeViewController.swift; sourceTree = "<group>"; };
+		DB6940D820C7D9E1003B7FAA /* TMHomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeWireframe.swift; sourceTree = "<group>"; };
+		DB6940D920C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeWireframeProtocol.swift; sourceTree = "<group>"; };
+		DB6940E720C7D9EB003B7FAA /* TMPersistentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPersistentService.swift; sourceTree = "<group>"; };
+		DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB6940F420C7DA26003B7FAA /* TMPersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPersistentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +132,10 @@
 		DB69409520C7D54D003B7FAA /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
+				DB6940F220C7DA26003B7FAA /* Model */,
+				DB6940CA20C7D9E1003B7FAA /* HomeView */,
+				DB6940C720C7D9D6003B7FAA /* SupportingFiles */,
 				DB69409620C7D54D003B7FAA /* AppDelegate.swift */,
-				DB69409820C7D54D003B7FAA /* ViewController.swift */,
 				DB69409A20C7D54D003B7FAA /* Main.storyboard */,
 				DB6940A020C7D54F003B7FAA /* Assets.xcassets */,
 				DB6940A220C7D54F003B7FAA /* LaunchScreen.storyboard */,
@@ -126,6 +161,120 @@
 				DB6940BB20C7D54F003B7FAA /* Info.plist */,
 			);
 			path = TaskManagerUITests;
+			sourceTree = "<group>";
+		};
+		DB6940C720C7D9D6003B7FAA /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940C820C7D9D6003B7FAA /* TMUIButtonExtention.swift */,
+			);
+			name = SupportingFiles;
+			path = ../../../TaskManager/TaskManager/SupportingFiles;
+			sourceTree = "<group>";
+		};
+		DB6940CA20C7D9E1003B7FAA /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940E520C7D9EB003B7FAA /* Model */,
+				DB6940CB20C7D9E1003B7FAA /* Presenter */,
+				DB6940CE20C7D9E1003B7FAA /* BusinessLogic */,
+				DB6940D220C7D9E1003B7FAA /* UserInterface */,
+				DB6940D720C7D9E1003B7FAA /* Routing */,
+			);
+			name = HomeView;
+			path = ../../../TaskManager/TaskManager/HomeView;
+			sourceTree = "<group>";
+		};
+		DB6940CB20C7D9E1003B7FAA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940CC20C7D9E1003B7FAA /* TMHomePresenter.swift */,
+				DB6940CD20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB6940CE20C7D9E1003B7FAA /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940CF20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift */,
+				DB6940D020C7D9E1003B7FAA /* TMHomeInteractorOutputProtocol.swift */,
+				DB6940D120C7D9E1003B7FAA /* TMHomeInteractor.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		DB6940D220C7D9E1003B7FAA /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940D320C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift */,
+				DB6940D420C7D9E1003B7FAA /* TMTaskTableViewCell.swift */,
+				DB6940D520C7D9E1003B7FAA /* TMHomeViewController.storyboard */,
+				DB6940D620C7D9E1003B7FAA /* TMHomeViewController.swift */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		DB6940D720C7D9E1003B7FAA /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940D820C7D9E1003B7FAA /* TMHomeWireframe.swift */,
+				DB6940D920C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		DB6940E520C7D9EB003B7FAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940E620C7D9EB003B7FAA /* CoreData */,
+			);
+			name = Model;
+			path = ../Model;
+			sourceTree = "<group>";
+		};
+		DB6940E620C7D9EB003B7FAA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940E720C7D9EB003B7FAA /* TMPersistentService.swift */,
+				DB6940E820C7D9EB003B7FAA /* Entities */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DB6940E820C7D9EB003B7FAA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */,
+				DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */,
+				DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */,
+				DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DB6940F220C7DA26003B7FAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940F320C7DA26003B7FAA /* CoreData */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB6940F320C7DA26003B7FAA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DB6940F420C7DA26003B7FAA /* TMPersistentService.swift */,
+				DB6940F520C7DA26003B7FAA /* Entities */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DB6940F520C7DA26003B7FAA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +384,7 @@
 				DB6940A420C7D54F003B7FAA /* LaunchScreen.storyboard in Resources */,
 				DB6940A120C7D54F003B7FAA /* Assets.xcassets in Resources */,
 				DB69409C20C7D54D003B7FAA /* Main.storyboard in Resources */,
+				DB6940E120C7D9E1003B7FAA /* TMHomeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +409,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6940DB20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift in Sources */,
+				DB6940F020C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */,
+				DB6940DC20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift in Sources */,
+				DB6940E220C7D9E1003B7FAA /* TMHomeViewController.swift in Sources */,
+				DB6940DF20C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift in Sources */,
+				DB6940ED20C7D9EB003B7FAA /* TMPersistentService.swift in Sources */,
 				DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */,
-				DB69409920C7D54D003B7FAA /* ViewController.swift in Sources */,
+				DB6940C920C7D9D6003B7FAA /* TMUIButtonExtention.swift in Sources */,
+				DB6940F120C7D9EB003B7FAA /* Task+CoreDataClass.swift in Sources */,
+				DB6940E420C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift in Sources */,
+				DB6940DA20C7D9E1003B7FAA /* TMHomePresenter.swift in Sources */,
+				DB6940EE20C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */,
+				DB6940EF20C7D9EB003B7FAA /* Task+CoreDataProperties.swift in Sources */,
 				DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */,
+				DB6940DE20C7D9E1003B7FAA /* TMHomeInteractor.swift in Sources */,
+				DB6940E020C7D9E1003B7FAA /* TMTaskTableViewCell.swift in Sources */,
+				DB6940DD20C7D9E1003B7FAA /* TMHomeInteractorOutputProtocol.swift in Sources */,
+				DB6940E320C7D9E1003B7FAA /* TMHomeWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
