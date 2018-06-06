@@ -11,10 +11,13 @@ import Foundation
 protocol TMHomePresenterProtocol {
     
     var tasksCount: Int { get }
+    var view: TMHomeViewControllerProtocol? { get set }
+    var wireframe: TMHomeWireframeProtocol? { get set }
     
     func task(atIndex indexPath: IndexPath) -> Task?
     func getData() -> ()
-    func tasksColorAsHex(atIndex: IndexPath) -> String?
-    func tasksName(atIndex: IndexPath) -> String
-    func tasksDate(atIndex: IndexPath) -> String
+    func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath)
+    func didSelectRowAt(indexPath: IndexPath)
+    func setupTaskDetailViewController(view: TMTaskDetailViewControllerProtocol)
+    func setupSettingsDetailViewController(view: TMSettingsViewControllerProtocol)
 }

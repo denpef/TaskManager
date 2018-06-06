@@ -10,11 +10,16 @@ import Foundation
 
 class TMHomePresenter {
     
+    // MARK: - Properties
+    
     var view: TMHomeViewControllerProtocol?
+    var wireframe: TMHomeWireframeProtocol?
+    
     var tasks: [Task] = []
     var tasksCount: Int {
         return tasks.count
     }
+    var currentTask: Task?
     lazy var formatter: DateFormatter = {
         
         let formatter = DateFormatter()
@@ -25,6 +30,10 @@ class TMHomePresenter {
         
         return formatter
     }()
+    
+    init() {
+        wireframe = TMHomeWireframe()
+    }
     
 }
 
@@ -38,29 +47,26 @@ extension TMHomePresenter: TMHomePresenterProtocol {
         }
     }
     
-    func tasksColorAsHex(atIndex indexPath: IndexPath) -> String? {
+    func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath) {
+        
         if let task = task(atIndex: indexPath) {
-            if let colorAsHex = task.colorCategory?.colorAsHex {
-                return colorAsHex == "" ? nil : colorAsHex
-            }
-        }
-        return nil
-    }
-    
-    func tasksName(atIndex indexPath: IndexPath)  -> String {
-        if let task = task(atIndex: indexPath) {
-            return task.title ?? ""
-        }
-        return ""
-    }
-    
-    func tasksDate(atIndex indexPath: IndexPath)  -> String {
-        if let task = task(atIndex: indexPath) {
+            cell.setTitle(title: task.title ?? "")
+            
             if let date = task.completionDate {
-                return formatter.string(from: date as Date)
+                cell.setDateLabelText(text: formatter.string(from: date as Date))
+            } else {
+                cell.setDateLabelText(text: "No date")
             }
+            
+            if let colorAsHex = task.colorCategory?.colorAsHex {
+                cell.setCategoryColor(by: colorAsHex == "" ? nil : colorAsHex)
+            } else {
+                cell.setCategoryColor(by: nil)
+            }
+            
+            cell.setCompleteStyle(isCompleted: task.isCompleted)
         }
-        return "No date"
+            
     }
     
     func getData() {
@@ -72,5 +78,19 @@ extension TMHomePresenter: TMHomePresenterProtocol {
         view?.reloadData()
     }
     
+    func didSelectRowAt(indexPath: IndexPath) {
+        currentTask = task(atIndex: indexPath)
+        
+    }
+    
+    func setupTaskDetailViewController(view: TMTaskDetailViewControllerProtocol) {
+        
+    }
+    
+    func setupSettingsDetailViewController(view: TMSettingsViewControllerProtocol) {
+        
+    }
+    
 }
+
 

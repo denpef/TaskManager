@@ -8,11 +8,43 @@
 
 import UIKit
 
-class TMTaskTableViewCell: UITableViewCell {
+class TMTaskTableViewCell: UITableViewCell  {
 
     @IBOutlet weak var completeTaskImage: UIImageView!
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var completionDateLabel: UILabel!
     @IBOutlet weak var colorCategoryImage: UIImageView!
+    
+}
+extension TMTaskTableViewCell: TMTaskTableViewCellProtocol {
+
+    func setTitle(title: String) {
+        taskNameLabel.text = title
+    }
+    
+    func setDateLabelText(text: String) {
+         completionDateLabel.text = text
+    }
+    
+    func setCategoryColor(by hex: String?) {
+        if let colorAsHex = hex {
+            colorCategoryImage.backgroundColor = UIColor(hex: colorAsHex)
+        } else {
+            colorCategoryImage.backgroundColor = UIColor.clear
+        }
+    }
+    
+    func setCompleteStyle(isCompleted: Bool) {
+        
+        let completedAplpha: CGFloat = 0.6
+        let notCompletedAplpha: CGFloat = 1
+        
+        completeTaskImage.image = isCompleted ? #imageLiteral(resourceName: "completed") : #imageLiteral(resourceName: "notCompleted")
+        
+        completeTaskImage.alpha = isCompleted ? completedAplpha : notCompletedAplpha
+        taskNameLabel.alpha = isCompleted ? completedAplpha : notCompletedAplpha
+        completionDateLabel.alpha = isCompleted ? completedAplpha : notCompletedAplpha
+        colorCategoryImage.alpha = isCompleted ? completedAplpha : notCompletedAplpha
+    }
 
 }

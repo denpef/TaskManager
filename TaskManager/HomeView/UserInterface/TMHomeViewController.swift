@@ -10,7 +10,13 @@ import UIKit
 
 class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     
-    var presenter: TMHomePresenterProtocol?
+    // MARK:- Propertyes
+    
+    var presenter: TMHomePresenterProtocol? = {
+        var presenter = TMHomePresenter()
+        presenter.wireframe = TMHomeWireframe()
+        return presenter
+    }()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +29,8 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
         return storyboard.instantiateViewController(withIdentifier: identifire) as? TMHomeViewController
     }
     
+    // MARK: Override methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,14 +40,30 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
         presenter?.getData()
     }
     
+    // MARK: TMHomeViewControllerProtocol methods
+    
     func reloadData() {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "TaskDetailSegue":
+            presenter?.setupTaskDetailViewController(view: sender as! TMTaskDetailViewControllerProtocol)
+        case "SettingSegue":
+            presenter?.setupSettingsDetailViewController(view: sender as! TMSettingsViewControllerProtocol)
+        default:
+            return
+        }
+    }
+    
+    
 }
 
 extension TMHomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectRowAt(indexPath: indexPath)
+    }
 }
 
 extension TMHomeViewController: UITableViewDataSource {
@@ -50,16 +74,7 @@ extension TMHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TMTaskTableViewCell
-        
-        if let colorAsHex = presenter?.tasksColorAsHex(atIndex: indexPath) {
-            cell.colorCategoryImage.backgroundColor = UIColor(hex: colorAsHex)
-        } else {
-            cell.colorCategoryImage.backgroundColor = UIColor.clear
-        }
-        
-        cell.taskNameLabel.text = presenter?.tasksName(atIndex: indexPath)
-        cell.completionDateLabel.text = presenter?.tasksDate(atIndex: indexPath)
-        
+        presenter?.configure(cell: cell as TMTaskTableViewCellProtocol, by: indexPath)
         return cell
     }
     
