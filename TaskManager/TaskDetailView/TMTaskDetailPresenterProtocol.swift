@@ -9,14 +9,15 @@
 import Foundation
 
 protocol TMTaskDetailPresenterProtocol {
+    
     var wireframe: TMTaskDetailViewControllerProtocol? { get set }
     var view: TMTaskDetailViewControllerProtocol? { get set }
-    //var task: Task? { get set }
     
     func setupView()
-    func categoryChange()
     
+    func didChangedCategory()
     func didChangeTitle(text: String)
+    func didChangedDate(date: NSDate?)
     
     func didDeletedTask(completionHandler: () -> ())
     func doneButtonTapped()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB62249520C8951000D8826F /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62249420C8951000D8826F /* DatePickerViewController.swift */; };
 		DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69409620C7D54D003B7FAA /* AppDelegate.swift */; };
 		DB69409C20C7D54D003B7FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB69409A20C7D54D003B7FAA /* Main.storyboard */; };
 		DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB69409D20C7D54D003B7FAA /* TaskManager.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB62249420C8951000D8826F /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		DB69409320C7D54D003B7FAA /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB69409620C7D54D003B7FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB69409B20C7D54D003B7FAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				DB69413620C83293003B7FAA /* TMTaskDetailViewControllerProtocol.swift */,
 				DB69413A20C83364003B7FAA /* TMTaskDetailPresenter.swift */,
 				DB69413C20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift */,
+				DB62249420C8951000D8826F /* DatePickerViewController.swift */,
 			);
 			path = TaskDetailView;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				DB69411F20C7E2DF003B7FAA /* TMHomeViewControllerProtocol.swift in Sources */,
 				DB69413B20C83364003B7FAA /* TMTaskDetailPresenter.swift in Sources */,
 				DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */,
+				DB62249520C8951000D8826F /* DatePickerViewController.swift in Sources */,
 				DB69414420C8400D003B7FAA /* TMSegue.swift in Sources */,
 				DB69412A20C7E3AB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */,
 				DB69414820C855CE003B7FAA /* TMTaskDetailViewController.swift in Sources */,

@@ -26,7 +26,7 @@ class TMHomePresenter {
         
         formatter.calendar = Calendar.current
         formatter.locale = Calendar.current.locale
-        formatter.dateFormat = "MMM, dd"
+        formatter.dateFormat = "d MMM yy"
         
         return formatter
     }()

@@ -67,11 +67,66 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         // Setup Text fields
         titleTextField.autocapitalizationType = .sentences
         
+        setupDatePicker()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.setupView()
+    }
+    
+    // MARK: Date toolbar
+    
+    private func createToolbar(title: String, actionDone: Selector, actionDelete: Selector) -> UIToolbar {
+        
+        let delete = UIBarButtonItem(title: "Clear", style: .done, target: self, action: actionDelete)
+        delete.tintColor = #colorLiteral(red: 0.9196171467, green: 0.2142267733, blue: 0.2214575526, alpha: 0.9)
+        
+        let spaceLeft = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.textAlignment = .center
+        
+        let titleItem = UIBarButtonItem(customView: titleLabel)
+
+        let spaceRight = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: actionDone)
+        
+        let toolbar = UIToolbar()
+        
+        toolbar.setItems([delete, spaceLeft, titleItem, spaceRight, done], animated: false)
+        toolbar.barStyle = .default
+        toolbar.sizeToFit()
+        toolbar.isUserInteractionEnabled = true
+        
+        return toolbar
+    }
+    
+    func setupDatePicker() {
+        
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 260)
+        
+        let toolbar = createToolbar(title: "Completion date", actionDone: #selector(doneDateClick), actionDelete: #selector(cleareDateClick))
+        
+        dateTextField.inputAccessoryView = toolbar
+        let datePickerView = DatePickerViewController(frame: frame)
+        datePickerView.picker.datePickerMode = .date
+        datePickerView.presenter = presenter
+        dateTextField.inputView = datePickerView
+        
+    }
+    
+    @objc private func doneDateClick() {
+        self.view.endEditing(true)
+    }
+    
+    
+    @objc private func cleareDateClick() {
+        presenter?.didChangedDate(date: nil)
+        self.view.endEditing(true)
     }
 
 }
@@ -85,17 +140,7 @@ extension TMTaskDetailViewController: UITextFieldDelegate {
     
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
 //        if let dateInputView = textField.inputView as? DatePickerViewController {
-//            if dateInputView.modeOfPicker == .date {
-//                if point!.dateIsEmpty() {
-//                    point?.setDate(date: Calendar.current.startOfDay(for: Date()) as NSDate)
-//                }
-//                dateInputView.picker.setDate(Calendar.current.startOfDay(for: point!.date! as Date), animated: false)
-//            } else if dateInputView.modeOfPicker == .reminderDate{
-//                if point!.reminderDateIsEmpty() {
-//                    point?.setReminderDate(date: point!.morningDateBy(dateValue: Date()))
-//                }
-//                dateInputView.picker.setDate(point!.reminderDate! as Date, animated: false)
-//            }
+//            //dateInputView.picker.setDate(Calendar.current.startOfDay(for: point!.date! as Date), animated: false)
 //        }
 //    }
     
@@ -107,3 +152,4 @@ extension TMTaskDetailViewController: UITextFieldDelegate {
     }
     
 }
+

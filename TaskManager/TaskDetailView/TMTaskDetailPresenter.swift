@@ -16,7 +16,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         
         formatter.calendar = Calendar.current
         formatter.locale = Calendar.current.locale
-        formatter.dateFormat = "MMM, dd"
+        formatter.dateFormat = "d MMM yyyy"
         
         return formatter
     }()
@@ -28,6 +28,14 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     var title: String?
     var completionDate: NSDate?
     var colorCategory: ColorCategory?
+    
+    private func setViewDate(date: NSDate?) {
+        if let date = date {
+            view?.setDateLabet(text: formatter.string(from: date as Date))
+        } else {
+            view?.setDateLabet(text: "")
+        }
+    }
     
     func doneButtonTapped() {
         
@@ -44,8 +52,13 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         TMPersistentService.saveContext()
     }
     
-    func categoryChange() {
+    func didChangedCategory() {
         
+    }
+    
+    func didChangedDate(date: NSDate?) {
+        completionDate = date
+        setViewDate(date: completionDate)
     }
     
     func setupView() {
@@ -55,20 +68,18 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         completionDate = task?.completionDate
         colorCategory = task?.colorCategory
         
-        //
+        // set view fields value
         view?.setTitle(text: task?.title ?? "")
         view?.setCategoryTitle(text: task?.colorCategory?.title ?? "")
         view?.setCategoryColor(hex: task?.colorCategory?.colorAsHex ?? "")
-        if let date = task?.completionDate {
-            view?.setDateLabet(text: formatter.string(from: date as Date))
-        } else {
-            view?.setDateLabet(text: "")
-        }
+        setViewDate(date: task?.completionDate)
+        
     }
     
     func didChangeTitle(text: String) {
         if text == "" { return }
         title = text
+        view?.setTitle(text: text)
     }
     
     private func createNewTaskIfNeeded() {
