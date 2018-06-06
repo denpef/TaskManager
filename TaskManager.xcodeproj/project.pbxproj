@@ -27,10 +27,6 @@
 		DB6940E320C7D9E1003B7FAA /* TMHomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D820C7D9E1003B7FAA /* TMHomeWireframe.swift */; };
 		DB6940E420C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940D920C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift */; };
 		DB6940ED20C7D9EB003B7FAA /* TMPersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940E720C7D9EB003B7FAA /* TMPersistentService.swift */; };
-		DB6940EE20C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */; };
-		DB6940EF20C7D9EB003B7FAA /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */; };
-		DB6940F020C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */; };
-		DB6940F120C7D9EB003B7FAA /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,11 +73,11 @@
 		DB6940D820C7D9E1003B7FAA /* TMHomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeWireframe.swift; sourceTree = "<group>"; };
 		DB6940D920C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMHomeWireframeProtocol.swift; sourceTree = "<group>"; };
 		DB6940E720C7D9EB003B7FAA /* TMPersistentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPersistentService.swift; sourceTree = "<group>"; };
-		DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB6940F420C7DA26003B7FAA /* TMPersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPersistentService.swift; sourceTree = "<group>"; };
+		DB69410A20C7DD15003B7FAA /* ColorCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB69410B20C7DD15003B7FAA /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB69410C20C7DD15003B7FAA /* ColorCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DB69410D20C7DD16003B7FAA /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,10 +241,10 @@
 		DB6940E820C7D9EB003B7FAA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DB6940E920C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift */,
-				DB6940EA20C7D9EB003B7FAA /* Task+CoreDataProperties.swift */,
-				DB6940EB20C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift */,
-				DB6940EC20C7D9EB003B7FAA /* Task+CoreDataClass.swift */,
+				DB69410B20C7DD15003B7FAA /* Task+CoreDataClass.swift */,
+				DB69410D20C7DD16003B7FAA /* Task+CoreDataProperties.swift */,
+				DB69410C20C7DD15003B7FAA /* ColorCategory+CoreDataClass.swift */,
+				DB69410A20C7DD15003B7FAA /* ColorCategory+CoreDataProperties.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -410,18 +406,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB6940DB20C7D9E1003B7FAA /* TMHomePresenterProtocol.swift in Sources */,
-				DB6940F020C7D9EB003B7FAA /* ColorCategory+CoreDataClass.swift in Sources */,
 				DB6940DC20C7D9E1003B7FAA /* TMHomeInteractorProtocol.swift in Sources */,
 				DB6940E220C7D9E1003B7FAA /* TMHomeViewController.swift in Sources */,
 				DB6940DF20C7D9E1003B7FAA /* TMHomeViewControllerProtocol.swift in Sources */,
 				DB6940ED20C7D9EB003B7FAA /* TMPersistentService.swift in Sources */,
 				DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */,
 				DB6940C920C7D9D6003B7FAA /* TMUIButtonExtention.swift in Sources */,
-				DB6940F120C7D9EB003B7FAA /* Task+CoreDataClass.swift in Sources */,
 				DB6940E420C7D9E1003B7FAA /* TMHomeWireframeProtocol.swift in Sources */,
 				DB6940DA20C7D9E1003B7FAA /* TMHomePresenter.swift in Sources */,
-				DB6940EE20C7D9EB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */,
-				DB6940EF20C7D9EB003B7FAA /* Task+CoreDataProperties.swift in Sources */,
 				DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */,
 				DB6940DE20C7D9E1003B7FAA /* TMHomeInteractor.swift in Sources */,
 				DB6940E020C7D9E1003B7FAA /* TMTaskTableViewCell.swift in Sources */,
