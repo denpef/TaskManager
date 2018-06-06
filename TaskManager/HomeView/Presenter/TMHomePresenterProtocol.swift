@@ -15,8 +15,9 @@ protocol TMHomePresenterProtocol {
     var wireframe: TMHomeWireframeProtocol? { get set }
     
     func task(atIndex indexPath: IndexPath) -> Task?
-    func getData() -> ()
+    func getData()
     func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath)
+    func didAddNewTask()
     func didSelectRowAt(indexPath: IndexPath)
     func setupTaskDetailViewController(detailView: TMTaskDetailViewControllerProtocol)
     func setupSettingsDetailViewController(settingsView: TMSettingsViewControllerProtocol)

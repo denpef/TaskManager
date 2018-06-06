@@ -23,11 +23,9 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     @IBOutlet weak var addNewTaskButton: UIBarButtonItem!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
-//    static func storyboardInstance() -> TMHomeViewController? {
-//        let identifire = String(describing: self)
-//        let storyboard = UIStoryboard(name: identifire, bundle: nil)
-//        return storyboard.instantiateViewController(withIdentifier: identifire) as? TMHomeViewController
-//    }
+    @IBAction func addNewTaskBarButtonItemTap(_ sender: Any) {
+        presenter?.didAddNewTask()
+    }
     
     // MARK: Override methods
     
@@ -37,6 +35,7 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter?.view = self
         presenter?.getData()
     }
     
@@ -59,9 +58,9 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case TMSegue.taskDetailSegue:
-            presenter?.setupTaskDetailViewController(detailView: sender as! TMTaskDetailViewControllerProtocol)
+            presenter?.setupTaskDetailViewController(detailView: segue.destination as! TMTaskDetailViewControllerProtocol)
         case TMSegue.settingSegue:
-            presenter?.setupSettingsDetailViewController(settingsView: sender as! TMSettingsViewControllerProtocol)
+            presenter?.setupSettingsDetailViewController(settingsView: segue.destination as! TMSettingsViewControllerProtocol)
         default:
             return
         }

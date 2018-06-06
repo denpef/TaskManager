@@ -9,6 +9,13 @@
 import Foundation
 
 protocol TMTaskDetailPresenterProtocol {
-    var wireframe: TMTaskDetailViewControllerProtocol { get set }
-    var view: TMTaskDetailViewControllerProtocol { get set }
+    var wireframe: TMTaskDetailViewControllerProtocol? { get set }
+    var view: TMTaskDetailViewControllerProtocol? { get set }
+    //var task: Task? { get set }
+    
+    func setupView()
+    func didDeleted()
+    func categoryChange()
+    
+    func didChangeTitle(text: String)
 }

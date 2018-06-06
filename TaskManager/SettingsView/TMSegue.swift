@@ -10,5 +10,5 @@ import Foundation
 
 class TMSegue {
     static var taskDetailSegue = "TaskDetailSegue"
-    static var settingSegue = "SettingSegue"
+    static var settingSegue = "SettingsSegue"
 }

@@ -62,7 +62,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 oct 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWE-YU-DgI">
                                                     <rect key="frame" x="284" y="13" width="76" height="17"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" placeholder="YES" id="u0H-Xe-kil"/>
+                                                        <constraint firstAttribute="width" constant="76" id="u0H-Xe-kil"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -92,8 +92,8 @@
                                         <connections>
                                             <outlet property="colorCategoryImage" destination="UQl-8A-R3H" id="xGX-9n-eN4"/>
                                             <outlet property="completeTaskImage" destination="wIe-jQ-UY0" id="qKD-IY-1J2"/>
-                                            <outlet property="completionDateLabel" destination="0jX-ts-Ost" id="5RR-kn-ibe"/>
-                                            <outlet property="taskNameLabel" destination="0jX-ts-Ost" id="5I3-ut-u9S"/>
+                                            <outlet property="completionDateLabel" destination="gWE-YU-DgI" id="xc1-xu-1gx"/>
+                                            <outlet property="taskNameLabel" destination="0jX-ts-Ost" id="rI3-SP-lq8"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeparatorCell" id="NBw-wM-Udq">
@@ -143,14 +143,11 @@
                     <navigationItem key="navigationItem" id="pn2-wd-MTq">
                         <barButtonItem key="leftBarButtonItem" image="nav_bar_ic_settings" id="568-fd-IXP">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="QRF-5W-cM2" kind="show" id="1gT-qy-kyS"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="nav_bar_ic_add" id="Whw-p0-HOP">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="51s-32-7yY" kind="show" id="LcC-an-eN3"/>
+                                <action selector="addNewTaskBarButtonItemTap:" destination="Unk-GL-1OL" id="ezr-jw-hfL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -158,16 +155,18 @@
                         <outlet property="addNewTaskButton" destination="Whw-p0-HOP" id="iXr-MI-UAh"/>
                         <outlet property="settingsButton" destination="568-fd-IXP" id="0B7-nH-Sed"/>
                         <outlet property="tableView" destination="cd6-2D-9IE" id="lK9-ax-FrV"/>
+                        <segue destination="51s-32-7yY" kind="show" identifier="TaskDetailSegue" id="4Tz-mc-fAL"/>
+                        <segue destination="QRF-5W-cM2" kind="show" identifier="SettingsSegue" id="qSI-Qc-4ru"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAn-Hd-3Ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.80000000000000004" y="-65.217391304347828"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Task Detail View Controller-->
         <scene sceneID="ujC-SD-Nl7">
             <objects>
-                <tableViewController id="51s-32-7yY" sceneMemberID="viewController">
+                <tableViewController id="51s-32-7yY" customClass="TMTaskDetailViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Fs-rT-lgk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,6 +186,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="51s-32-7yY" id="yk1-ri-tcJ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -210,6 +212,9 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="51s-32-7yY" id="6J6-i2-wDN"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -232,6 +237,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="51s-32-7yY" id="VBC-v7-dIM"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -251,10 +259,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jed-1f-WDX">
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="HiP-Mf-BkC">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="doneBarButtonTouchUpInside:" destination="51s-32-7yY" id="sTP-y4-F7y"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Delete" id="ptA-GZ-X9H">
                             <color key="tintColor" red="0.91961714670000005" green="0.21422677330000001" blue="0.2214575526" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTextField" destination="J2G-C4-HAh" id="lAq-9A-Wci"/>
+                        <outlet property="dateTextField" destination="e6N-W6-Wt4" id="2x2-TV-iAW"/>
+                        <outlet property="deleteBarBurronItem" destination="ptA-GZ-X9H" id="CD3-wU-bnY"/>
+                        <outlet property="doneBarBurronItem" destination="HiP-Mf-BkC" id="zQ1-S7-TYG"/>
+                        <outlet property="titleTextField" destination="wNb-p2-miF" id="t8y-9d-yXv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBC-eO-NRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1v-Xr-7Kx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="699"/>
+            <point key="canvasLocation" x="382" y="699"/>
         </scene>
     </scenes>
     <resources>

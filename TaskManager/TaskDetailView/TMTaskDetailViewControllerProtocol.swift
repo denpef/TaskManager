@@ -6,6 +6,12 @@
 //  Copyright © 2018 Denis Efimov. All rights reserved.
 //
 
-protocol TMTaskDetailViewControllerProtocol {
-    var presenter: TMTaskDetailPresenterProtocol { get set }
+protocol TMTaskDetailViewControllerProtocol: class {
+    var presenter: TMTaskDetailPresenterProtocol? { get set }
+    
+    func setTitle(text: String)
+    func setCategoryTitle(text: String)
+    func setCategoryColor(hex: String)
+    func setDateLabet(text: String)
+    
 }
