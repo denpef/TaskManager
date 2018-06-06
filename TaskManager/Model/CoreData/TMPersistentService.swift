@@ -21,15 +21,15 @@ class TMPersistentService {
         })
         return container
     }()
-
+    
     private init () {}
     
     static var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
+    
     // MARK: - Core Data Saving support
-
+    
     static func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

@@ -31,7 +31,7 @@
         <!--Home View Controller-->
         <scene sceneID="bZ3-82-R28">
             <objects>
-                <viewController storyboardIdentifier="TMHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Unk-GL-1OL" customClass="TMHomeViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Unk-GL-1OL" customClass="TMHomeViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r7n-cO-YrL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" id="V14-ZS-pQM" customClass="TMTaskTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" id="V14-ZS-pQM" customClass="TMTaskTableViewCell" customModule="TaskManager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V14-ZS-pQM" id="Igc-VO-Pee">
@@ -149,6 +149,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNewTaskButton" destination="Whw-p0-HOP" id="iXr-MI-UAh"/>
+                        <outlet property="settingsButton" destination="568-fd-IXP" id="0B7-nH-Sed"/>
                         <outlet property="tableView" destination="cd6-2D-9IE" id="lK9-ax-FrV"/>
                     </connections>
                 </viewController>
