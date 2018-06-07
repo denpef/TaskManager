@@ -10,5 +10,14 @@ import Foundation
 
 protocol TMAddCategoryPresenterProtocol {
     var view: TMAddCategoryViewControllerProtocol? { get set }
+    var colorsCount: Int { get }
+    
+    func colorHex(atIndex indexPath: IndexPath) -> String?
+    func colorName(atIndex indexPath: IndexPath) -> String?
+    
+    func selectColor(at indexPath: IndexPath)
+    func isSelectedCell(at indexPath: IndexPath) -> Bool
+    
+    func didSaved(text: String?)
 }
 

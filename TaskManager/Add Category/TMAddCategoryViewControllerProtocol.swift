@@ -10,4 +10,7 @@ import Foundation
 
 protocol TMAddCategoryViewControllerProtocol: class {
     var presenter: TMAddCategoryPresenterProtocol? { get set }
+    func reloadData()
+    func noColorSelectedWarning()
+    func backToSettings()
 }

@@ -106,6 +106,9 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
         switch segue.identifier {
         case TMSegue.taskDetailSegue:
             presenter?.setupTaskDetailViewController(detailView: segue.destination as! TMTaskDetailViewControllerProtocol)

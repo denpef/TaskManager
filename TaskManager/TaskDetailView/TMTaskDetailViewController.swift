@@ -138,12 +138,6 @@ extension TMTaskDetailViewController: UITextFieldDelegate {
         return false
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if let dateInputView = textField.inputView as? DatePickerViewController {
-//            //dateInputView.picker.setDate(Calendar.current.startOfDay(for: point!.date! as Date), animated: false)
-//        }
-//    }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
 
         if titleTextField == textField {

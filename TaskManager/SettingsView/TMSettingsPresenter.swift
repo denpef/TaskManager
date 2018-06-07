@@ -12,6 +12,7 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
         
     var categories: [ColorCategory] = []
     var view: TMSettingsViewControllerProtocol?
+    var wireframe: TMSettingsWireframeProtocol?
     var userNotificationsIsOn: Bool {
         get {
             guard let value = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool else {
@@ -63,5 +64,9 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
             return category.colorAsHex ?? ""
         }
         return ""
+    }
+    
+    func setupAddCategoryViewController(categoryView: TMAddCategoryViewControllerProtocol) {
+        wireframe?.presentAddCategoryView(view: categoryView)
     }
 }
