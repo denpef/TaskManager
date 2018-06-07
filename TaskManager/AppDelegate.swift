@@ -18,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
+        
         if let _ = UserDefaults.standard.object(forKey: "userNotificationsIsOn") {}
         else {
-            UserDefaults.standard.set(true, forKey: "userNotificationsIsOn")
+            UserDefaults.standard.set(false, forKey: "userNotificationsIsOn")
         }
+        
     }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         TMPersistentService.saveContext()
     }

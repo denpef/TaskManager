@@ -110,7 +110,7 @@ class DatePickerViewController: UIView {
     }
     
     @objc private func setNewDate() {
-        presenter?.didChangedDate(date: picker.date as? NSDate)
+        presenter?.didChangedDate(date: picker.date as NSDate)
     }
     
 }

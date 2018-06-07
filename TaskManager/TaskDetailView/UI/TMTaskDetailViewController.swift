@@ -138,7 +138,7 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         
         dateTextField.inputAccessoryView = toolbar
         let datePickerView = DatePickerViewController(frame: frame)
-        datePickerView.picker.datePickerMode = .date
+        datePickerView.picker.datePickerMode = .dateAndTime
         datePickerView.presenter = presenter
         dateTextField.inputView = datePickerView
         

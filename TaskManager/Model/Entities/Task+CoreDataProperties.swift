@@ -23,4 +23,10 @@ extension Task {
     @NSManaged public var title: String?
     @NSManaged public var colorCategory: ColorCategory?
 
+    public convenience init() {
+
+        self.init(context: TMPersistentService.context)
+        self.id = UUID().uuidString
+
+    }
 }

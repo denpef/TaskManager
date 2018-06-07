@@ -16,8 +16,8 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
     var userNotificationsIsOn: Bool {
         get {
             guard let value = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool else {
-                UserDefaults.standard.set(true, forKey: "userNotificationsIsOn")
-                return true
+                UserDefaults.standard.set(false, forKey: "userNotificationsIsOn")
+                return false
             }
             return value
         }
@@ -50,6 +50,21 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
     
     func didChangedNotificationSwitchValue(on value: Bool) {
         userNotificationsIsOn = value
+        if value {
+            // User Notifications register
+            UserNotificationsManager.shared.registerForNotifications(options: [.alert, .badge, .sound])
+            
+            let tasks = TMPersistentService.getTasksWithADateGreaterThanTheCurrent()
+            for taskValue in tasks {
+                // Shedule notification
+                if let date = taskValue.completionDate {
+                    print("shedule: \(date)")
+                    UserNotificationsManager.shared.scheduleNotification(identifier: taskValue.id!, title: taskValue.title ?? "", subtitle: "", body: "", date: date as Date)
+                }
+            }
+        } else {
+            UserNotificationsManager.shared.removePendingNotifications()
+        }
     }
     
     func cellTitleAt(indexPath: IndexPath) -> String {

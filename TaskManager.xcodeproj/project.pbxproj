@@ -25,7 +25,7 @@
 		DB6224B720C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */; };
 		DB6224B920C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */; };
 		DB6224BB20C8F24100D8826F /* TMTaskDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */; };
-		DB6224C720C8FE6D00D8826F /* TMUserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */; };
+		DB6224C720C8FE6D00D8826F /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224C620C8FE6D00D8826F /* UserNotificationManager.swift */; };
 		DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69409620C7D54D003B7FAA /* AppDelegate.swift */; };
 		DB69409C20C7D54D003B7FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB69409A20C7D54D003B7FAA /* Main.storyboard */; };
 		DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB69409D20C7D54D003B7FAA /* TaskManager.xcdatamodeld */; };
@@ -91,7 +91,7 @@
 		DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSelectCategoryPresenterProtocol.swift; sourceTree = "<group>"; };
 		DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskDetailWireframeProtocol.swift; sourceTree = "<group>"; };
 		DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskDetailWireframe.swift; sourceTree = "<group>"; };
-		DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserNotificationManager.swift; sourceTree = "<group>"; };
+		DB6224C620C8FE6D00D8826F /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		DB69409320C7D54D003B7FAA /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB69409620C7D54D003B7FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB69409B20C7D54D003B7FAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,22 +152,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB62249E20C8BA1600D8826F /* Add Category View */ = {
+		DB62249E20C8BA1600D8826F /* AddCategoryView */ = {
 			isa = PBXGroup;
 			children = (
 				DB6224BE20C8FC7800D8826F /* UI */,
 				DB6224BF20C8FC7900D8826F /* Presenter */,
 			);
-			path = "Add Category View";
+			path = AddCategoryView;
 			sourceTree = "<group>";
 		};
-		DB6224AF20C8EA7000D8826F /* Select Category View */ = {
+		DB6224AF20C8EA7000D8826F /* SelectCategoryView */ = {
 			isa = PBXGroup;
 			children = (
 				DB6224BD20C8FC7100D8826F /* UI */,
 				DB6224BC20C8FC6B00D8826F /* Presenter */,
 			);
-			path = "Select Category View";
+			path = SelectCategoryView;
 			sourceTree = "<group>";
 		};
 		DB6224BC20C8FC6B00D8826F /* Presenter */ = {
@@ -286,12 +286,12 @@
 		DB69409520C7D54D003B7FAA /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				DB6224AF20C8EA7000D8826F /* Select Category View */,
-				DB62249E20C8BA1600D8826F /* Add Category View */,
-				DB69413520C83273003B7FAA /* SettingsView */,
-				DB69413420C83266003B7FAA /* TaskDetailView */,
 				DB69411220C7DE3F003B7FAA /* SupportingFiles */,
 				DB6940F220C7DA26003B7FAA /* Model */,
+				DB6224AF20C8EA7000D8826F /* SelectCategoryView */,
+				DB62249E20C8BA1600D8826F /* AddCategoryView */,
+				DB69413520C83273003B7FAA /* SettingsView */,
+				DB69413420C83266003B7FAA /* TaskDetailView */,
 				DB69409620C7D54D003B7FAA /* AppDelegate.swift */,
 				DB69411520C7DE87003B7FAA /* MainView */,
 				DB69409A20C7D54D003B7FAA /* Main.storyboard */,
@@ -324,6 +324,7 @@
 		DB6940F220C7DA26003B7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB6940F520C7DA26003B7FAA /* Entities */,
 				DB6940F320C7DA26003B7FAA /* CoreData */,
 			);
 			path = Model;
@@ -332,7 +333,6 @@
 		DB6940F320C7DA26003B7FAA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DB6940F520C7DA26003B7FAA /* Entities */,
 				DB69412C20C7E458003B7FAA /* TMPersistentService.swift */,
 			);
 			path = CoreData;
@@ -355,7 +355,7 @@
 				DB69411320C7DE59003B7FAA /* TMInspectableExtentions.swift */,
 				DB69413020C80D8F003B7FAA /* TMUIColorExtention.swift */,
 				DB69414320C8400D003B7FAA /* TMSegue.swift */,
-				DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */,
+				DB6224C620C8FE6D00D8826F /* UserNotificationManager.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -550,7 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6224C720C8FE6D00D8826F /* TMUserNotificationManager.swift in Sources */,
+				DB6224C720C8FE6D00D8826F /* UserNotificationManager.swift in Sources */,
 				DB62249D20C8A63100D8826F /* TMSettingsViewControllerProtocol.swift in Sources */,
 				DB69414020C83434003B7FAA /* TMMainWireframe.swift in Sources */,
 				DB6224B120C8EAA000D8826F /* TMSelectCategoryTableViewController.swift in Sources */,

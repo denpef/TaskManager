@@ -28,6 +28,21 @@ class TMPersistentService {
         return persistentContainer.viewContext
     }
     
+    static func getTasksWithADateGreaterThanTheCurrent() -> [Task] {
+        
+        do {
+            let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "completionDate >= %@", NSDate())
+            let fetchedResults = try TMPersistentService.context.fetch(fetchRequest)
+            
+            if let _ = fetchedResults.first {
+                return fetchedResults
+            }
+        } catch {}
+        
+        return []
+    }
+    
     // MARK: - Core Data Saving support
     
     static func saveContext () {

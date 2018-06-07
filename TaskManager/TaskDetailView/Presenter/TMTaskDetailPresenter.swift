@@ -16,7 +16,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         
         formatter.calendar = Calendar.current
         formatter.locale = Calendar.current.locale
-        formatter.dateFormat = "d MMM yyyy"
+        formatter.dateFormat = "d MMM yyyy HH:mm"
         
         return formatter
     }()
@@ -50,6 +50,20 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         task?.colorCategory = colorCategory
         
         TMPersistentService.saveContext()
+        
+        // Shedule notification
+        if let date = task?.completionDate {
+            if let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool {
+                if userNotificationsIsOn {
+                    if let task = task {
+                        print("shedule: \(date)")
+                        UserNotificationsManager.shared.scheduleNotification(identifier: task.id!, title: task.title ?? "", subtitle: "", body: "", date: date as Date)
+                    }
+                }
+            } else if let task = task {
+                UserNotificationsManager.shared.removePendingNotificationswith(identifiers: [task.id!])
+            }
+        }
     }
     
     func didChangedCategory(newValue: ColorCategory) {
@@ -59,6 +73,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     
     func didChangedDate(date: NSDate?) {
         completionDate = date
+        
         setViewDate(date: completionDate)
     }
     
@@ -91,7 +106,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     
     private func createNewTaskIfNeeded() {
         if task != nil { return }
-        task = Task(context: TMPersistentService.context)
+        task = Task()
     }
     
     func didDeletedTask(completionHandler: () -> ()) {
