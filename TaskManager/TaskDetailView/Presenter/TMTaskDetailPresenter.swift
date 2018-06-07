@@ -61,7 +61,6 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
             if let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool {
                 if userNotificationsIsOn {
                     if let task = task {
-                        print("shedule: \(date)")
                         UserNotificationsManager.shared.scheduleNotification(identifier: task.id!, title: task.title ?? "", subtitle: "", body: "", date: date as Date)
                     }
                 }
@@ -130,5 +129,9 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     
     func setupSelectSegueViewController(selectCategoryView: TMSelectCategoryTableViewControllerProtocol) {
         wireframe?.presentSelectSegueViewController(view: selectCategoryView)
+    }
+    
+    func getCompletionDate() -> NSDate? {
+        return task?.completionDate
     }
 }

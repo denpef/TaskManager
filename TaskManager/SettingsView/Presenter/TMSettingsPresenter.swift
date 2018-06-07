@@ -71,7 +71,6 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
             for taskValue in tasks {
                 // Shedule notification
                 if let date = taskValue.completionDate {
-                    print("shedule: \(date)")
                     UserNotificationsManager.shared.scheduleNotification(identifier: taskValue.id!, title: taskValue.title ?? "", subtitle: "", body: "", date: date as Date)
                 }
             }

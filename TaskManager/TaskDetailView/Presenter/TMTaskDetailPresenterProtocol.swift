@@ -35,4 +35,7 @@ protocol TMTaskDetailPresenterProtocol {
     // When category was changed
     func didChangedCategory(newValue: ColorCategory)
     
+    // For init DatePicker
+    func getCompletionDate() -> NSDate?
+    
 }

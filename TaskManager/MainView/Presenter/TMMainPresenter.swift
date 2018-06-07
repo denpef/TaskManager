@@ -121,6 +121,17 @@ extension TMMainPresenter: TMMainPresenterProtocol {
         if let task = task(atIndex: indexPath) {
             task.isCompleted = !task.isCompleted
             TMPersistentService.saveContext()
+            
+            // Notifications
+            if task.isCompleted {
+                UserNotificationsManager.shared.removeNotification(identifire: [task.id!])
+            } else {
+                guard let date = task.completionDate else { return }
+                guard let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool else { return }
+                if userNotificationsIsOn {
+                    UserNotificationsManager.shared.scheduleNotification(identifier: task.id!, title: task.title ?? "", subtitle: "", body: "", date: date as Date)
+                }
+            }
         }
         getData()
     }

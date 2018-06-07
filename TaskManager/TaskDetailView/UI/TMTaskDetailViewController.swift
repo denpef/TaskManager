@@ -147,6 +147,9 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         let datePickerView = DatePickerViewController(frame: frame)
         datePickerView.picker.datePickerMode = .dateAndTime
         datePickerView.presenter = presenter
+        if let currentDate = presenter?.getCompletionDate() {
+            datePickerView.picker.setDate(currentDate as Date, animated: false)
+        }
         dateTextField.inputView = datePickerView
         
     }
