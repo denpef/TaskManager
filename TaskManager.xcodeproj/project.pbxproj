@@ -19,13 +19,13 @@
 		DB6224A820C8C1DE00D8826F /* TMSettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224A720C8C1DE00D8826F /* TMSettingsWireframe.swift */; };
 		DB6224AA20C8C1F400D8826F /* TMSettingsWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224A920C8C1F400D8826F /* TMSettingsWireframeProtocol.swift */; };
 		DB6224AC20C8C98A00D8826F /* TMColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224AB20C8C98A00D8826F /* TMColorTableViewCell.swift */; };
-		DB6224AE20C8D83200D8826F /* TMCategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224AD20C8D83200D8826F /* TMCategoriesTableViewCell.swift */; };
 		DB6224B120C8EAA000D8826F /* TMSelectCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B020C8EAA000D8826F /* TMSelectCategoryTableViewController.swift */; };
 		DB6224B320C8EAB400D8826F /* TMSelectCategoryTableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B220C8EAB400D8826F /* TMSelectCategoryTableViewControllerProtocol.swift */; };
 		DB6224B520C8EAC600D8826F /* TMSelectCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B420C8EAC600D8826F /* TMSelectCategoryPresenter.swift */; };
 		DB6224B720C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */; };
 		DB6224B920C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */; };
 		DB6224BB20C8F24100D8826F /* TMTaskDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */; };
+		DB6224C720C8FE6D00D8826F /* TMUserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */; };
 		DB69409720C7D54D003B7FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69409620C7D54D003B7FAA /* AppDelegate.swift */; };
 		DB69409C20C7D54D003B7FAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB69409A20C7D54D003B7FAA /* Main.storyboard */; };
 		DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB69409D20C7D54D003B7FAA /* TaskManager.xcdatamodeld */; };
@@ -85,13 +85,13 @@
 		DB6224A720C8C1DE00D8826F /* TMSettingsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsWireframe.swift; sourceTree = "<group>"; };
 		DB6224A920C8C1F400D8826F /* TMSettingsWireframeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsWireframeProtocol.swift; sourceTree = "<group>"; };
 		DB6224AB20C8C98A00D8826F /* TMColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMColorTableViewCell.swift; sourceTree = "<group>"; };
-		DB6224AD20C8D83200D8826F /* TMCategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		DB6224B020C8EAA000D8826F /* TMSelectCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSelectCategoryTableViewController.swift; sourceTree = "<group>"; };
 		DB6224B220C8EAB400D8826F /* TMSelectCategoryTableViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSelectCategoryTableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		DB6224B420C8EAC600D8826F /* TMSelectCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSelectCategoryPresenter.swift; sourceTree = "<group>"; };
 		DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSelectCategoryPresenterProtocol.swift; sourceTree = "<group>"; };
 		DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskDetailWireframeProtocol.swift; sourceTree = "<group>"; };
 		DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTaskDetailWireframe.swift; sourceTree = "<group>"; };
+		DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUserNotificationManager.swift; sourceTree = "<group>"; };
 		DB69409320C7D54D003B7FAA /* TaskManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB69409620C7D54D003B7FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB69409B20C7D54D003B7FAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,27 +152,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB62249E20C8BA1600D8826F /* Add Category */ = {
+		DB62249E20C8BA1600D8826F /* Add Category View */ = {
 			isa = PBXGroup;
 			children = (
-				DB62249F20C8BA3B00D8826F /* TMAddCategoryViewController.swift */,
-				DB6224A120C8BA5D00D8826F /* TMAddCategoryViewControllerProtocol.swift */,
-				DB6224A320C8BA6D00D8826F /* TMAddCategoryPresenter.swift */,
-				DB6224A520C8BA7F00D8826F /* TMAddCategoryPresenterProtocol.swift */,
-				DB6224AB20C8C98A00D8826F /* TMColorTableViewCell.swift */,
+				DB6224BE20C8FC7800D8826F /* UI */,
+				DB6224BF20C8FC7900D8826F /* Presenter */,
 			);
-			path = "Add Category";
+			path = "Add Category View";
 			sourceTree = "<group>";
 		};
-		DB6224AF20C8EA7000D8826F /* Select Category */ = {
+		DB6224AF20C8EA7000D8826F /* Select Category View */ = {
+			isa = PBXGroup;
+			children = (
+				DB6224BD20C8FC7100D8826F /* UI */,
+				DB6224BC20C8FC6B00D8826F /* Presenter */,
+			);
+			path = "Select Category View";
+			sourceTree = "<group>";
+		};
+		DB6224BC20C8FC6B00D8826F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB6224B420C8EAC600D8826F /* TMSelectCategoryPresenter.swift */,
+				DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB6224BD20C8FC7100D8826F /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				DB6224B020C8EAA000D8826F /* TMSelectCategoryTableViewController.swift */,
 				DB6224B220C8EAB400D8826F /* TMSelectCategoryTableViewControllerProtocol.swift */,
-				DB6224B420C8EAC600D8826F /* TMSelectCategoryPresenter.swift */,
-				DB6224B620C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift */,
 			);
-			path = "Select Category";
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DB6224BE20C8FC7800D8826F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB62249F20C8BA3B00D8826F /* TMAddCategoryViewController.swift */,
+				DB6224A120C8BA5D00D8826F /* TMAddCategoryViewControllerProtocol.swift */,
+				DB6224AB20C8C98A00D8826F /* TMColorTableViewCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DB6224BF20C8FC7900D8826F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB6224A320C8BA6D00D8826F /* TMAddCategoryPresenter.swift */,
+				DB6224A520C8BA7F00D8826F /* TMAddCategoryPresenterProtocol.swift */,
+			);
+			name = Presenter;
+			path = "New Group/Presenter";
+			sourceTree = "<group>";
+		};
+		DB6224C020C8FC8000D8826F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB62249820C8A61200D8826F /* TMSettingsPresenter.swift */,
+				DB62249A20C8A62300D8826F /* TMSettingsPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB6224C120C8FC8200D8826F /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				DB6224A720C8C1DE00D8826F /* TMSettingsWireframe.swift */,
+				DB6224A920C8C1F400D8826F /* TMSettingsWireframeProtocol.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		DB6224C220C8FC8400D8826F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB62249620C8A5D600D8826F /* TMSettingsViewController.swift */,
+				DB62249C20C8A63100D8826F /* TMSettingsViewControllerProtocol.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DB6224C320C8FC8800D8826F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB69413A20C83364003B7FAA /* TMTaskDetailPresenter.swift */,
+				DB69413C20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB6224C420C8FC8A00D8826F /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */,
+				DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		DB6224C520C8FC8D00D8826F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB69414720C855CE003B7FAA /* TMTaskDetailViewController.swift */,
+				DB69413620C83293003B7FAA /* TMTaskDetailViewControllerProtocol.swift */,
+				DB62249420C8951000D8826F /* DatePickerViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		DB69408A20C7D54D003B7FAA = {
@@ -198,8 +286,8 @@
 		DB69409520C7D54D003B7FAA /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				DB6224AF20C8EA7000D8826F /* Select Category */,
-				DB62249E20C8BA1600D8826F /* Add Category */,
+				DB6224AF20C8EA7000D8826F /* Select Category View */,
+				DB62249E20C8BA1600D8826F /* Add Category View */,
 				DB69413520C83273003B7FAA /* SettingsView */,
 				DB69413420C83266003B7FAA /* TaskDetailView */,
 				DB69411220C7DE3F003B7FAA /* SupportingFiles */,
@@ -267,6 +355,7 @@
 				DB69411320C7DE59003B7FAA /* TMInspectableExtentions.swift */,
 				DB69413020C80D8F003B7FAA /* TMUIColorExtention.swift */,
 				DB69414320C8400D003B7FAA /* TMSegue.swift */,
+				DB6224C620C8FE6D00D8826F /* TMUserNotificationManager.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -274,9 +363,9 @@
 		DB69411520C7DE87003B7FAA /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				DB69413E20C83412003B7FAA /* Wireframe */,
 				DB69411820C7DECD003B7FAA /* UI */,
 				DB69411B20C7DF5F003B7FAA /* Presenter */,
+				DB69413E20C83412003B7FAA /* Wireframe */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -304,13 +393,9 @@
 		DB69413420C83266003B7FAA /* TaskDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				DB6224BA20C8F24100D8826F /* TMTaskDetailWireframe.swift */,
-				DB6224B820C8F1D100D8826F /* TMTaskDetailWireframeProtocol.swift */,
-				DB69414720C855CE003B7FAA /* TMTaskDetailViewController.swift */,
-				DB69413620C83293003B7FAA /* TMTaskDetailViewControllerProtocol.swift */,
-				DB69413A20C83364003B7FAA /* TMTaskDetailPresenter.swift */,
-				DB69413C20C8336F003B7FAA /* TMTaskDetailPresenterProtocol.swift */,
-				DB62249420C8951000D8826F /* DatePickerViewController.swift */,
+				DB6224C520C8FC8D00D8826F /* UI */,
+				DB6224C320C8FC8800D8826F /* Presenter */,
+				DB6224C420C8FC8A00D8826F /* Wireframe */,
 			);
 			path = TaskDetailView;
 			sourceTree = "<group>";
@@ -318,13 +403,9 @@
 		DB69413520C83273003B7FAA /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
-				DB6224A720C8C1DE00D8826F /* TMSettingsWireframe.swift */,
-				DB6224A920C8C1F400D8826F /* TMSettingsWireframeProtocol.swift */,
-				DB62249620C8A5D600D8826F /* TMSettingsViewController.swift */,
-				DB62249C20C8A63100D8826F /* TMSettingsViewControllerProtocol.swift */,
-				DB6224AD20C8D83200D8826F /* TMCategoriesTableViewCell.swift */,
-				DB62249820C8A61200D8826F /* TMSettingsPresenter.swift */,
-				DB62249A20C8A62300D8826F /* TMSettingsPresenterProtocol.swift */,
+				DB6224C220C8FC8400D8826F /* UI */,
+				DB6224C020C8FC8000D8826F /* Presenter */,
+				DB6224C120C8FC8200D8826F /* Wireframe */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -469,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6224C720C8FE6D00D8826F /* TMUserNotificationManager.swift in Sources */,
 				DB62249D20C8A63100D8826F /* TMSettingsViewControllerProtocol.swift in Sources */,
 				DB69414020C83434003B7FAA /* TMMainWireframe.swift in Sources */,
 				DB6224B120C8EAA000D8826F /* TMSelectCategoryTableViewController.swift in Sources */,
@@ -483,7 +565,6 @@
 				DB69409F20C7D54D003B7FAA /* TaskManager.xcdatamodeld in Sources */,
 				DB69413120C80D8F003B7FAA /* TMUIColorExtention.swift in Sources */,
 				DB69412920C7E3AB003B7FAA /* Task+CoreDataProperties.swift in Sources */,
-				DB6224AE20C8D83200D8826F /* TMCategoriesTableViewCell.swift in Sources */,
 				DB69412B20C7E3AB003B7FAA /* ColorCategory+CoreDataProperties.swift in Sources */,
 				DB6224B720C8EADC00D8826F /* TMSelectCategoryPresenterProtocol.swift in Sources */,
 				DB6224A620C8BA7F00D8826F /* TMAddCategoryPresenterProtocol.swift in Sources */,

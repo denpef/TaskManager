@@ -36,7 +36,7 @@ extension TMTaskTableViewCell: TMTaskTableViewCellProtocol {
     
     func setCompleteStyle(isCompleted: Bool) {
         
-        let completedAplpha: CGFloat = 0.6
+        let completedAplpha: CGFloat = 0.4
         let notCompletedAplpha: CGFloat = 1
         
         completeTaskImage.image = isCompleted ? #imageLiteral(resourceName: "completed") : #imageLiteral(resourceName: "notCompleted")
