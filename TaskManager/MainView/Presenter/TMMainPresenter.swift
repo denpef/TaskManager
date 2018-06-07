@@ -35,11 +35,7 @@ class TMMainPresenter {
         wireframe = TMMainWireframe()
     }
     
-}
-
-extension TMMainPresenter: TMMainPresenterProtocol {
-    
-    func task(atIndex indexPath: IndexPath) -> Task? {
+    private func task(atIndex indexPath: IndexPath) -> Task? {
         if tasks.indices.contains(indexPath.row) {
             return tasks[indexPath.row]
         } else {
@@ -47,6 +43,12 @@ extension TMMainPresenter: TMMainPresenterProtocol {
         }
     }
     
+}
+
+extension TMMainPresenter: TMMainPresenterProtocol {
+    
+    
+    // Fill cell from presenter data
     func configure(cell: TMTaskTableViewCellProtocol, by indexPath: IndexPath) {
         
         if let task = task(atIndex: indexPath) {
@@ -69,6 +71,8 @@ extension TMMainPresenter: TMMainPresenterProtocol {
             
     }
     
+    // Reload tasks from storage & gives a signal
+    // to view for update elements
     func getData() {
         do {
             self.tasks = try TMPersistentService.context.fetch(Task.fetchRequest())
@@ -78,15 +82,18 @@ extension TMMainPresenter: TMMainPresenterProtocol {
         view?.reloadData()
     }
     
+    // Segue to detail of selected cell
     func didSelectRowAt(indexPath: IndexPath) {
         currentTask = task(atIndex: indexPath)
         view?.presentTaskDetailView()
     }
     
+    // Segue to detail of selected cell
     func didAddNewTask() {
         view?.presentTaskDetailView()
     }
     
+    // Prepeare for segue to Settings View
     func setupTaskDetailViewController(detailView: TMTaskDetailViewControllerProtocol) {
         
         wireframe?.presentDetailView(with: currentTask, view: detailView)
@@ -95,11 +102,12 @@ extension TMMainPresenter: TMMainPresenterProtocol {
         }
         
     }
-    
+    // Prepeare for segue to Detail View
     func setupSettingsDetailViewController(settingsView: TMSettingsViewControllerProtocol) {
         wireframe?.presentSettingsView(view: settingsView)
     }
     
+    // Presenter must remove element from the data
     func didSDeleteRowAt(indexPath: IndexPath) {
         if let task = task(atIndex: indexPath) {
             TMPersistentService.context.delete(task)
@@ -108,6 +116,7 @@ extension TMMainPresenter: TMMainPresenterProtocol {
         getData()
     }
     
+    // Sets the flag to the opposite value
     func invertedCompleteFlag(at indexPath: IndexPath) {
         if let task = task(atIndex: indexPath) {
             task.isCompleted = !task.isCompleted

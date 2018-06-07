@@ -18,6 +18,8 @@ class TMSelectCategoryPresenter: TMSelectCategoryPresenterProtocol {
         }
     }
     
+    // MARK: - Category data
+    
     private func category(atIndex indexPath: IndexPath) -> ColorCategory? {
         if categories.indices.contains(indexPath.row) {
             return categories[indexPath.row]
@@ -47,6 +49,8 @@ class TMSelectCategoryPresenter: TMSelectCategoryPresenterProtocol {
         }
     }
     
+    // Reload data from storage & gives a signal
+    // to view for update elements
     func getData() {
         do {
             self.categories = try TMPersistentService.context.fetch(ColorCategory.fetchRequest())

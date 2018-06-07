@@ -10,7 +10,10 @@ import Foundation
 
 class TMAddCategoryPresenter: TMAddCategoryPresenterProtocol {
     
+    // Connected view & wireframe with presenter
     var view: TMAddCategoryViewControllerProtocol?
+    
+    // Hardcode array frome attachment file
     var colors: [String] {
         get {
             return ["#C6DA02", "#79A700", "#F68B2C", "#E2B400", "#F5522D", "#FF6E83"]
@@ -23,6 +26,28 @@ class TMAddCategoryPresenter: TMAddCategoryPresenterProtocol {
     }
     var colorsCount: Int { get { return colors.count } }
     var selectedColorIndex: Int?
+    
+    
+    
+    // Check selected cell or not
+    func isSelectedCell(at indexPath: IndexPath) -> Bool {
+        return indexPath.row == selectedColorIndex
+    }
+    
+    // Save to context
+    func didSaved(text: String?) {
+        if let colorIndex = selectedColorIndex {
+            let newColorCategory = ColorCategory(context: TMPersistentService.context)
+            newColorCategory.colorAsHex = colors[colorIndex]
+            if let title = text {
+                newColorCategory.title = title
+            }
+            TMPersistentService.saveContext()
+            view?.backToSettings()
+        } else {
+            view?.noColorSelectedWarning()
+        }
+    }
     
     func colorHex(atIndex indexPath: IndexPath) -> String? {
         if colors.indices.contains(indexPath.row) {
@@ -44,24 +69,6 @@ class TMAddCategoryPresenter: TMAddCategoryPresenterProtocol {
         if colors.indices.contains(indexPath.row) {
             selectedColorIndex = indexPath.row
             view?.reloadData()
-        }
-    }
-    
-    func isSelectedCell(at indexPath: IndexPath) -> Bool {
-        return indexPath.row == selectedColorIndex
-    }
-    
-    func didSaved(text: String?) {
-        if let colorIndex = selectedColorIndex {
-            let newColorCategory = ColorCategory(context: TMPersistentService.context)
-            newColorCategory.colorAsHex = colors[colorIndex]
-            if let title = text {
-                newColorCategory.title = title
-            }
-            TMPersistentService.saveContext()
-            view?.backToSettings()
-        } else {
-            view?.noColorSelectedWarning()
         }
     }
 }

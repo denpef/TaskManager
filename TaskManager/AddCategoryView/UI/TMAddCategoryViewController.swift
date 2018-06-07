@@ -36,6 +36,7 @@ class TMAddCategoryViewController: UIViewController, TMAddCategoryViewController
         tableView.reloadData()
     }
 
+    // Alert question
     func noColorSelectedWarning() {
         
         // Alert controller
@@ -61,6 +62,8 @@ extension TMAddCategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ColorCell", for: indexPath) as! TMColorTableViewCell
+        
+        // Configure table view cell
         
         cell.colorNameLabel.text = presenter?.colorName(atIndex: indexPath)
         if let hex = presenter?.colorHex(atIndex: indexPath) {

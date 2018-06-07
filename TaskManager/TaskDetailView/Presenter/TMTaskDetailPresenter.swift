@@ -21,14 +21,17 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         return formatter
     }()
     
+    // Connected view & wireframe with presenter
     var wireframe: TMTaskDetailWireframeProtocol?
     var view: TMTaskDetailViewControllerProtocol?
+    
     var task: Task?
 
     var title: String?
     var completionDate: NSDate?
     var colorCategory: ColorCategory?
     
+    // Gives the view command the update data
     private func setViewDate(date: NSDate?) {
         if let date = date {
             view?.setDateLabet(text: formatter.string(from: date as Date))
@@ -37,6 +40,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         }
     }
     
+    // Saving context
     func doneButtonTapped() {
         
         if let newTitle = title {
@@ -51,7 +55,8 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         
         TMPersistentService.saveContext()
         
-        // Shedule notification
+        // If the task has a deadline in the future
+        // then it is necessary to put it on hold
         if let date = task?.completionDate {
             if let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool {
                 if userNotificationsIsOn {
@@ -61,11 +66,14 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
                     }
                 }
             } else if let task = task {
+                // If the task has a empty date -
+                // cleare notification
                 UserNotificationsManager.shared.removePendingNotificationswith(identifiers: [task.id!])
             }
         }
     }
     
+    // Work with view actions, when need change data
     func didChangedCategory(newValue: ColorCategory) {
         colorCategory = newValue
         updateView()
@@ -77,6 +85,8 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         setViewDate(date: completionDate)
     }
     
+    // Reload tasks from storage & gives a signal
+    // to view for update elements
     func setupView() {
         
         // Cash task data
@@ -85,6 +95,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         colorCategory = task?.colorCategory
     }
     
+    // For update from date
     func updateView() {
         // set view fields value
         view?.setTitle(text: title ?? "")

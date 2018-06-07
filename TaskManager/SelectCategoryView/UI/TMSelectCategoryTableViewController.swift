@@ -28,10 +28,12 @@ class TMSelectCategoryTableViewController: UITableViewController, TMSelectCatego
         return presenter?.categoryCount ?? 0
     }
 
+    // Reload Table View
     func reloadData() {
         tableView.reloadData()
     }
     
+    // Back to Detail View
     func toPopView() {
         navigationController?.popViewController(animated: true)
     }

@@ -10,12 +10,13 @@ import UIKit
 
 class TMSettingsViewController: UIViewController, TMSettingsViewControllerProtocol {
 
-    @IBOutlet weak var tableView: UITableView!
-    
     var presenter: TMSettingsPresenterProtocol?
     
+    // MARK: - Outlets
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notificationSwitch: UISwitch!
     
+    // MARK: - Actions
     @IBAction func addNewCategoryToucjUpInside(_ sender: Any) {
         performSegue(withIdentifier: TMSegue.addCategorySegue, sender: self)
     }
@@ -23,6 +24,8 @@ class TMSettingsViewController: UIViewController, TMSettingsViewControllerProtoc
     @IBAction func notificationSwitchValueChanged(_ sender: UISwitch) {
         presenter?.didChangedNotificationSwitchValue(on: sender.isOn)
     }
+    
+    // MARK: - Override functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,7 @@ class TMSettingsViewController: UIViewController, TMSettingsViewControllerProtoc
         notificationSwitch.setOn(value, animated: true)
     }
 
-
+    // Update view
     func reloadData() {
         tableView.reloadData()
     }

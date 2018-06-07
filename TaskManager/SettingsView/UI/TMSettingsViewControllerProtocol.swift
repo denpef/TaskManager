@@ -11,6 +11,9 @@ import Foundation
 protocol TMSettingsViewControllerProtocol: class {
     var presenter: TMSettingsPresenterProtocol? { get set }
     
+    // Notification control
     func setNotificationSwitch(on value: Bool)
+    
+    // Update view
     func reloadData()
 }

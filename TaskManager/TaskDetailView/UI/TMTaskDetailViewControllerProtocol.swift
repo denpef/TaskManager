@@ -9,6 +9,7 @@
 protocol TMTaskDetailViewControllerProtocol: class {
     var presenter: TMTaskDetailPresenterProtocol? { get set }
     
+    // Metods of update text fields
     func setTitle(text: String)
     func setCategoryTitle(text: String)
     func setCategoryColor(hex: String)

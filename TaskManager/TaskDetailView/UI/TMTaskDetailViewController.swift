@@ -10,6 +10,7 @@ import UIKit
 
 class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControllerProtocol {
     
+    // MARK: - Properties
     var presenter: TMTaskDetailPresenterProtocol?
     
     @IBOutlet var titleTextField: UITextField!
@@ -19,6 +20,8 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
     
     @IBOutlet var deleteBarBurronItem: UIBarButtonItem!
     @IBOutlet var doneBarBurronItem: UIBarButtonItem!
+    
+    // MARK: - Actions
     
     @IBAction func doneBarButtonTouchUpInside(_ sender: Any) {
         self.view.endEditing(true)
@@ -46,11 +49,15 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         
     }
     
+    // MARK: - TableViewDataSource & delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 && indexPath.section == 1 {
             performSegue(withIdentifier: TMSegue.selectCategorySegue, sender: self)
         }
     }
+    
+    // MARK: - Protocol
     
     func setTitle(text: String) {
         titleTextField.text = text

@@ -29,15 +29,6 @@ class DatePickerViewController: UIView {
         picker.center = CGPoint(x: self.center.x, y: self.center.y - 5)
         picker.addTarget(self, action: #selector(setNewDate), for: .valueChanged)
         
-//        if let actualPoint = DataManager.shared.actualPoint {
-//
-//            if !actualPoint.dateIsEmpty() {
-//                let date = actualPoint.date! as Date
-//                picker.setDate(date, animated: false)
-//            }
-//
-//        }
-        
         // Setup stack view
         
         let stackView = UIStackView(arrangedSubviews: createButtons(nameButtonDay, nameButtonWeek, nameButtonMonth))
@@ -81,6 +72,7 @@ class DatePickerViewController: UIView {
         setNewDate()
     }
     
+    // Create help buttons + Week, + Month & Tomorrow
     private func createButtons(_ named: String...) -> [UIButton] {
         return named.map({ name in
             let button = UIButton()

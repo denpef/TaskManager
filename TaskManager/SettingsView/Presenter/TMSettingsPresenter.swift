@@ -9,10 +9,16 @@
 import Foundation
 
 class TMSettingsPresenter: TMSettingsPresenterProtocol {
-        
+    
+    // Categories data
     var categories: [ColorCategory] = []
+    var categoryCount: Int { get {return categories.count} }
+    
+    // Connected view & wireframe with presenter
     var view: TMSettingsViewControllerProtocol?
     var wireframe: TMSettingsWireframeProtocol?
+    
+    // Notification flag
     var userNotificationsIsOn: Bool {
         get {
             guard let value = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool else {
@@ -25,8 +31,8 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
             UserDefaults.standard.set(newUserNotificationsIsOn, forKey: "userNotificationsIsOn")
         }
     }
-    var categoryCount: Int { get {return categories.count} }
     
+    // Check category by index in category array
     private func category(atIndex indexPath: IndexPath) -> ColorCategory? {
         if categories.indices.contains(indexPath.row) {
             return categories[indexPath.row]
@@ -35,6 +41,8 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
         }
     }
     
+    // Reload data from storage & gives a signal
+    // to view for update elements
     func getData() {
         do {
             self.categories = try TMPersistentService.context.fetch(ColorCategory.fetchRequest())
@@ -44,16 +52,21 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
         view?.reloadData()
     }
     
+    // Signal to update
     func setupView() {
         view?.setNotificationSwitch(on: userNotificationsIsOn)
     }
     
+    // A switch that will globally turn off / on all local notifications
+    // when deactivated, remove notifications
+    // when activated, puts on schedule
     func didChangedNotificationSwitchValue(on value: Bool) {
         userNotificationsIsOn = value
         if value {
             // User Notifications register
             UserNotificationsManager.shared.registerForNotifications(options: [.alert, .badge, .sound])
             
+            // fetch request inside
             let tasks = TMPersistentService.getTasksWithADateGreaterThanTheCurrent()
             for taskValue in tasks {
                 // Shedule notification
@@ -63,6 +76,7 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
                 }
             }
         } else {
+            // Remove all notifications when the flag turn off
             UserNotificationsManager.shared.removePendingNotifications()
         }
     }

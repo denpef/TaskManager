@@ -29,32 +29,41 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         return presenter
     }()
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addNewTaskButton: UIBarButtonItem!
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
+    // MARK: - Actions
+    
+    // Gesture recognizer action - set flag Completed/Not
     @IBAction func tapOnView(_ sender: UITapGestureRecognizer) {
         
         if sender.state != .ended { return }
         
         let tapLocationInTableView = sender.location(in: tableView)
         
+        // Method is replacement tableView -> didSelectRowAt
+        // also we catch tap on view for complete task
         if let tapIndexPath = tableView.indexPathForRow(at: tapLocationInTableView) {
             
             guard let tappedCell = tableView.cellForRow(at: tapIndexPath) as? TMTaskTableViewCell else { return }
             let tapLocationInCell = sender.location(in: tappedCell)
             
             if tappedCell.completedFlagView.frame.contains(tapLocationInCell) {
+                
+                // change flag isCompleted
                 presenter?.invertedCompleteFlag(at: tapIndexPath)
+                
             } else {
+                
+                // change flag isCompleted for task by tapIndexPath
                 presenter?.didSelectRowAt(indexPath: tapIndexPath)
+                
             }
         }
         
-    }
-    
-    @IBAction func settingsBarButtonItemTap(_ sender: Any) {
     }
     
     @IBAction func addNewTaskBarButtonItemTap(_ sender: Any) {
@@ -67,11 +76,7 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         super.viewDidLoad()
         
         // Setup Refresh control
-        if #available(iOS 10, *) {
-            tableView.refreshControl = refreshControl
-        } else {
-            tableView.addSubview(refreshControl)
-        }
+        tableView.refreshControl = refreshControl
         
     }
     
@@ -81,6 +86,7 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         presenter?.getData()
     }
     
+    // Method for refreshControl
     @objc
     func updateView() {
         presenter?.getData()
@@ -95,10 +101,12 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         tableView.reloadData()
     }
     
+    // Segue to Detail View
     func presentTaskDetailView() {
         performSegue(withIdentifier: TMSegue.taskDetailSegue, sender: self)
     }
     
+    // Segue to Settings View
     func presentSettingsView() {
         performSegue(withIdentifier: TMSegue.settingSegue, sender: self)
     }
@@ -111,14 +119,17 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         
         switch segue.identifier {
         case TMSegue.taskDetailSegue:
+            // Through presenter to wireframe
+            // present for segue to Detail View
             presenter?.setupTaskDetailViewController(detailView: segue.destination as! TMTaskDetailViewControllerProtocol)
         case TMSegue.settingSegue:
+            // Through presenter to wireframe
+            // present for segue to Settings View
             presenter?.setupSettingsDetailViewController(settingsView: segue.destination as! TMSettingsViewControllerProtocol)
         default:
             return
         }
     }
-    
     
 }
 
