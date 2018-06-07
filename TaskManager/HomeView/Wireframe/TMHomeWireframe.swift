@@ -18,7 +18,9 @@ class TMHomeWireframe: TMHomeWireframeProtocol {
     }
     
     func presentSettingsView(view: TMSettingsViewControllerProtocol) {
-        
+        let settingsPresenter = TMSettingsPresenter()
+        settingsPresenter.view = view
+        view.presenter = settingsPresenter
     }
     
 }

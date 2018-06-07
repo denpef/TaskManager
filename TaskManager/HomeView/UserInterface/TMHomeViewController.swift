@@ -54,6 +54,9 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
         
     }
     
+    @IBAction func settingsBarButtonItemTap(_ sender: Any) {
+    }
+    
     @IBAction func addNewTaskBarButtonItemTap(_ sender: Any) {
         presenter?.didAddNewTask()
     }
