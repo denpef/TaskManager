@@ -6,7 +6,7 @@
 //  Copyright © 2018 Denis Efimov. All rights reserved.
 //
 
-protocol TMHomeViewControllerProtocol {
+protocol TMMainViewControllerProtocol {
     func reloadData()
     func presentTaskDetailView()
     func presentSettingsView()

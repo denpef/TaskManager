@@ -10,16 +10,20 @@ import Foundation
 
 protocol TMTaskDetailPresenterProtocol {
     
-    var wireframe: TMTaskDetailViewControllerProtocol? { get set }
+    var wireframe: TMTaskDetailWireframeProtocol? { get set }
     var view: TMTaskDetailViewControllerProtocol? { get set }
     
     func setupView()
+    func updateView()
     
-    func didChangedCategory()
     func didChangeTitle(text: String)
     func didChangedDate(date: NSDate?)
     
     func didDeletedTask(completionHandler: () -> ())
     func doneButtonTapped()
+    
+    func setupSelectSegueViewController(selectCategoryView: TMSelectCategoryTableViewControllerProtocol)
+    
+    func didChangedCategory(newValue: ColorCategory)
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
+class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
     
     // MARK:- Propertyes
     
@@ -23,9 +23,9 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
         return refreshControl
     }()
     
-    var presenter: TMHomePresenterProtocol? = {
-        var presenter = TMHomePresenter()
-        presenter.wireframe = TMHomeWireframe()
+    var presenter: TMMainPresenterProtocol? = {
+        var presenter = TMMainPresenter()
+        presenter.wireframe = TMMainWireframe()
         return presenter
     }()
     
@@ -122,7 +122,7 @@ class TMHomeViewController: UIViewController, TMHomeViewControllerProtocol {
     
 }
 
-extension TMHomeViewController: UITableViewDelegate {
+extension TMMainViewController: UITableViewDelegate {
     
     @available(iOS 11.0, *)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -151,7 +151,7 @@ extension TMHomeViewController: UITableViewDelegate {
     
 }
 
-extension TMHomeViewController: UITableViewDataSource {
+extension TMMainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50

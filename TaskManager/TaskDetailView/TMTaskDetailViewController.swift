@@ -13,7 +13,8 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
     var presenter: TMTaskDetailPresenterProtocol?
     
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var categoryTextField: UITextField!
+    @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var categoryImageView: UIView!
     @IBOutlet var dateTextField: UITextField!
     
     @IBOutlet var deleteBarBurronItem: UIBarButtonItem!
@@ -45,22 +46,34 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 && indexPath.section == 1 {
+            performSegue(withIdentifier: TMSegue.selectCategorySegue, sender: self)
+        }
+    }
+    
     func setTitle(text: String) {
         titleTextField.text = text
     }
     
     func setCategoryTitle(text: String) {
-        categoryTextField.text = text
+        categoryLabel.text = text
+        categoryLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     func setCategoryColor(hex: String) {
-        categoryTextField.backgroundColor = UIColor(hex: hex)
+        categoryImageView.backgroundColor = UIColor(hex: hex)
     }
     
     func setDateLabet(text: String) {
         dateTextField.text = text
     }
 
+    func setEmptyCategoryPlaceholder() {
+        categoryLabel.text = "Tap to select a category..."
+        categoryLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,11 +82,23 @@ class TMTaskDetailViewController: UITableViewController, TMTaskDetailViewControl
         
         setupDatePicker()
         
+        presenter?.setupView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.setupView()
+        presenter?.updateView()
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == TMSegue.selectCategorySegue {
+            presenter?.setupSelectSegueViewController(selectCategoryView: segue.destination as! TMSelectCategoryTableViewControllerProtocol)
+        }
     }
     
     // MARK: Date toolbar

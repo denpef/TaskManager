@@ -21,7 +21,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         return formatter
     }()
     
-    var wireframe: TMTaskDetailViewControllerProtocol?
+    var wireframe: TMTaskDetailWireframeProtocol?
     var view: TMTaskDetailViewControllerProtocol?
     var task: Task?
 
@@ -52,8 +52,9 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         TMPersistentService.saveContext()
     }
     
-    func didChangedCategory() {
-        
+    func didChangedCategory(newValue: ColorCategory) {
+        colorCategory = newValue
+        updateView()
     }
     
     func didChangedDate(date: NSDate?) {
@@ -67,12 +68,18 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         title = task?.title
         completionDate = task?.completionDate
         colorCategory = task?.colorCategory
-        
+    }
+    
+    func updateView() {
         // set view fields value
-        view?.setTitle(text: task?.title ?? "")
-        view?.setCategoryTitle(text: task?.colorCategory?.title ?? "")
-        view?.setCategoryColor(hex: task?.colorCategory?.colorAsHex ?? "")
-        setViewDate(date: task?.completionDate)
+        view?.setTitle(text: title ?? "")
+        if let category = colorCategory {
+            view?.setCategoryTitle(text: category.title ?? "")
+            view?.setCategoryColor(hex: category.colorAsHex ?? "")
+        } else {
+            view?.setEmptyCategoryPlaceholder()
+        }
+        setViewDate(date: completionDate)
         
     }
     
@@ -93,5 +100,9 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
             TMPersistentService.saveContext()
         }
         completionHandler()
+    }
+    
+    func setupSelectSegueViewController(selectCategoryView: TMSelectCategoryTableViewControllerProtocol) {
+        wireframe?.presentSelectSegueViewController(view: selectCategoryView)
     }
 }

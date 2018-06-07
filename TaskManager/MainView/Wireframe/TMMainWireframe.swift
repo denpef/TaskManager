@@ -8,13 +8,21 @@
 
 import Foundation
 
-class TMHomeWireframe: TMHomeWireframeProtocol {
+class TMMainWireframe: TMMainWireframeProtocol {
     
     func presentDetailView(with task: Task?, view: TMTaskDetailViewControllerProtocol) {
+        
         let detailPresenter = TMTaskDetailPresenter()
+        let wireframe = TMTaskDetailWireframe()
+        
+        wireframe.presenter = detailPresenter
+        
+        detailPresenter.wireframe = wireframe
         detailPresenter.task = task
         detailPresenter.view = view
+        
         view.presenter = detailPresenter
+        
     }
     
     func presentSettingsView(view: TMSettingsViewControllerProtocol) {

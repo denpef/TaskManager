@@ -13,5 +13,6 @@ protocol TMTaskDetailViewControllerProtocol: class {
     func setCategoryTitle(text: String)
     func setCategoryColor(hex: String)
     func setDateLabet(text: String)
+    func setEmptyCategoryPlaceholder()
     
 }

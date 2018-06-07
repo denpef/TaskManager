@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol TMHomePresenterProtocol {
+protocol TMMainPresenterProtocol {
     
     var tasksCount: Int { get }
-    var view: TMHomeViewControllerProtocol? { get set }
-    var wireframe: TMHomeWireframeProtocol? { get set }
+    var view: TMMainViewControllerProtocol? { get set }
+    var wireframe: TMMainWireframeProtocol? { get set }
     
     func task(atIndex indexPath: IndexPath) -> Task?
     func getData()

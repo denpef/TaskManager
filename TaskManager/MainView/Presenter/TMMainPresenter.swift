@@ -8,12 +8,12 @@
 
 import Foundation
 
-class TMHomePresenter {
+class TMMainPresenter {
     
     // MARK: - Properties
     
-    var view: TMHomeViewControllerProtocol?
-    var wireframe: TMHomeWireframeProtocol?
+    var view: TMMainViewControllerProtocol?
+    var wireframe: TMMainWireframeProtocol?
     
     var tasks: [Task] = []
     var tasksCount: Int {
@@ -32,12 +32,12 @@ class TMHomePresenter {
     }()
     
     init() {
-        wireframe = TMHomeWireframe()
+        wireframe = TMMainWireframe()
     }
     
 }
 
-extension TMHomePresenter: TMHomePresenterProtocol {
+extension TMMainPresenter: TMMainPresenterProtocol {
     
     func task(atIndex indexPath: IndexPath) -> Task? {
         if tasks.indices.contains(indexPath.row) {
