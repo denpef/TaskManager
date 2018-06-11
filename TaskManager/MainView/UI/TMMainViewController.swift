@@ -23,11 +23,7 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
         return refreshControl
     }()
     
-    var presenter: TMMainPresenterProtocol? = {
-        var presenter = TMMainPresenter()
-        presenter.wireframe = TMMainWireframe()
-        return presenter
-    }()
+    var presenter: TMMainPresenterProtocol?
     
     // MARK: - Outlets
     
@@ -74,6 +70,9 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = TMMainPresenter()
+        presenter?.wireframe = TMMainWireframe()
         
         // Setup Refresh control
         tableView.refreshControl = refreshControl

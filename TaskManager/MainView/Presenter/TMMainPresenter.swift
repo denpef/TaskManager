@@ -126,10 +126,12 @@ extension TMMainPresenter: TMMainPresenterProtocol {
             if task.isCompleted {
                 UserNotificationsManager.shared.removeNotification(identifire: [task.id!])
             } else {
-                guard let date = task.completionDate else { return }
-                guard let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool else { return }
-                if userNotificationsIsOn {
-                    UserNotificationsManager.shared.scheduleNotification(identifier: task.id!, title: task.title ?? "", subtitle: "", body: "", date: date as Date)
+                if let date = task.completionDate {
+                    if let userNotificationsIsOn = UserDefaults.standard.object(forKey: "userNotificationsIsOn") as? Bool {
+                        if userNotificationsIsOn {
+                            UserNotificationsManager.shared.scheduleNotification(identifier: task.id!, title: task.title ?? "", subtitle: "", body: "", date: date as Date)
+                        }
+                    }
                 }
             }
         }

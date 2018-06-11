@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TMMainPresenterProtocol {
+protocol TMMainPresenterProtocol: class {
     
     var tasksCount: Int { get }
     
