@@ -15,7 +15,7 @@ class TMSettingsPresenter: TMSettingsPresenterProtocol {
     var categoryCount: Int { get {return categories.count} }
     
     // Connected view & wireframe with presenter
-    var view: TMSettingsViewControllerProtocol?
+    weak var view: TMSettingsViewControllerProtocol?
     var wireframe: TMSettingsWireframeProtocol?
     
     // Notification flag

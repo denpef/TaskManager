@@ -23,13 +23,13 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     
     // Connected view & wireframe with presenter
     var wireframe: TMTaskDetailWireframeProtocol?
-    var view: TMTaskDetailViewControllerProtocol?
+    weak var view: TMTaskDetailViewControllerProtocol?
     
-    var task: Task?
+    weak var task: Task?
 
     var title: String?
     var completionDate: NSDate?
-    var colorCategory: ColorCategory?
+    weak var colorCategory: ColorCategory?
     
     // Gives the view command the update data
     private func setViewDate(date: NSDate?) {

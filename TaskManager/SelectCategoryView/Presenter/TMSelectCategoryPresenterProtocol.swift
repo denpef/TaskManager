@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TMSelectCategoryPresenterProtocol {
+protocol TMSelectCategoryPresenterProtocol: class {
     
     // Connected view  with presenter
     var view: TMSelectCategoryTableViewControllerProtocol? { get set }

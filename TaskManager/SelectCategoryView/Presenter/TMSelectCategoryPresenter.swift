@@ -12,7 +12,7 @@ class TMSelectCategoryPresenter: TMSelectCategoryPresenterProtocol {
     
     var currentTaskPresenter: TMTaskDetailPresenterProtocol?
     var categories: [ColorCategory] = []
-    var view: TMSelectCategoryTableViewControllerProtocol?
+    weak var view: TMSelectCategoryTableViewControllerProtocol?
     var categoryCount: Int { get {
             return categories.count
         }

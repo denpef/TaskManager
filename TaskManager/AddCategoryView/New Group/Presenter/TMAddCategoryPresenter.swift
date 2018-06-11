@@ -11,7 +11,7 @@ import Foundation
 class TMAddCategoryPresenter: TMAddCategoryPresenterProtocol {
     
     // Connected view & wireframe with presenter
-    var view: TMAddCategoryViewControllerProtocol?
+    weak var view: TMAddCategoryViewControllerProtocol?
     
     // Hardcode array frome attachment file
     var colors: [String] {

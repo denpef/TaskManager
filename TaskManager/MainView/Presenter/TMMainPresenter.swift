@@ -12,7 +12,7 @@ class TMMainPresenter {
     
     // MARK: - Properties
     
-    var view: TMMainViewControllerProtocol?
+    weak var view: TMMainViewControllerProtocol?
     var wireframe: TMMainWireframeProtocol?
     
     var tasks: [Task] = []

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Denis Efimov. All rights reserved.
 //
 
-protocol TMMainViewControllerProtocol {
+protocol TMMainViewControllerProtocol: class {
     
     // Reload tableView
     func reloadData()
