@@ -10,7 +10,7 @@ import Foundation
 
 class TMTaskDetailWireframe: TMTaskDetailWireframeProtocol {
     
-    var presenter: TMTaskDetailPresenterProtocol?
+    weak var presenter: TMTaskDetailPresenterProtocol?
     
     func presentSelectSegueViewController(view: TMSelectCategoryTableViewControllerProtocol) {
         let newPresenter = TMSelectCategoryPresenter()

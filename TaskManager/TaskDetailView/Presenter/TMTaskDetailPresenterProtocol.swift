@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TMTaskDetailPresenterProtocol {
+protocol TMTaskDetailPresenterProtocol: class {
     
     // Connected view & wireframe with presenter
     var wireframe: TMTaskDetailWireframeProtocol? { get set }
