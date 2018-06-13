@@ -51,7 +51,7 @@ class TMMainViewController: UIViewController, TMMainViewControllerProtocol {
                 
                 // change flag isCompleted
                 presenter?.invertedCompleteFlag(at: tapIndexPath)
-                
+            
             } else {
                 
                 // change flag isCompleted for task by tapIndexPath

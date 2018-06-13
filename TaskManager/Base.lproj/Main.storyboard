@@ -33,7 +33,7 @@
         <!--Main View Controller-->
         <scene sceneID="bZ3-82-R28">
             <objects>
-                <viewController id="Unk-GL-1OL" customClass="TMMainViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="Unk-GL-1OL" customClass="TMMainViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r7n-cO-YrL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +222,7 @@
         <!--Task Detail View Controller-->
         <scene sceneID="ujC-SD-Nl7">
             <objects>
-                <tableViewController id="51s-32-7yY" customClass="TMTaskDetailViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailView" id="51s-32-7yY" customClass="TMTaskDetailViewController" customModule="TaskManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Fs-rT-lgk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

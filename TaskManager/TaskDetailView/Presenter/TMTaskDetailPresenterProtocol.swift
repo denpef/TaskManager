@@ -14,6 +14,8 @@ protocol TMTaskDetailPresenterProtocol: class {
     var wireframe: TMTaskDetailWireframeProtocol? { get set }
     var view: TMTaskDetailViewControllerProtocol? { get set }
     
+    var task: Task? { get set }
+    
     // Reload tasks from storage & gives a signal
     // to view for update elements
     func setupView()

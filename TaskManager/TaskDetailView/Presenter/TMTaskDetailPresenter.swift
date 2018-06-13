@@ -46,7 +46,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
         if let newTitle = title {
             if newTitle != "" {
                 createNewTaskIfNeeded()
-                task?.title = title
+                task?.title = newTitle
             }
         }
         
