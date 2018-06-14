@@ -67,9 +67,7 @@ class TaskManagerTests: XCTestCase {
         detailView?.presenter?.didChangeTitle(text: newTaskTitle)
         
         // Save new Task and back on
-        detailView?.presenter?.doneButtonTapped()
-        
-        newTask = detailView?.presenter?.task
+        newTask = detailView?.presenter?.doneButtonTapped()
         
         XCTAssert(newTask != nil, "Didn't created new task on detail view")
         XCTAssert(newTask?.title == newTaskTitle, "New task title is incorrect: \(String(describing: newTask?.title))")

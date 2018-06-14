@@ -14,8 +14,6 @@ protocol TMTaskDetailPresenterProtocol: class {
     var wireframe: TMTaskDetailWireframeProtocol? { get set }
     var view: TMTaskDetailViewControllerProtocol? { get set }
     
-    var task: Task? { get set }
-    
     // Reload tasks from storage & gives a signal
     // to view for update elements
     func setupView()
@@ -29,7 +27,7 @@ protocol TMTaskDetailPresenterProtocol: class {
     func didDeletedTask(completionHandler: () -> ())
     
     // Save the data end return
-    func doneButtonTapped()
+    func doneButtonTapped() -> Task?
     
     // Prepeare for segue to select category view
     func setupSelectSegueViewController(selectCategoryView: TMSelectCategoryTableViewControllerProtocol)

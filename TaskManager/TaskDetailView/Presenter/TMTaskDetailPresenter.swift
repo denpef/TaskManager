@@ -25,7 +25,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     var wireframe: TMTaskDetailWireframeProtocol?
     weak var view: TMTaskDetailViewControllerProtocol?
     
-    weak var task: Task?
+    var task: Task?
 
     var title: String?
     var completionDate: NSDate?
@@ -41,7 +41,7 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
     }
     
     // Saving context
-    func doneButtonTapped() {
+    func doneButtonTapped() -> Task? {
         
         if let newTitle = title {
             if newTitle != "" {
@@ -70,6 +70,8 @@ class TMTaskDetailPresenter: TMTaskDetailPresenterProtocol {
                 UserNotificationsManager.shared.removePendingNotificationswith(identifiers: [task.id!])
             }
         }
+        
+        return task
     }
     
     // Work with view actions, when need change data
